@@ -33,11 +33,11 @@
   </div>
   <div class="location">
     <div class="address">
-      234 Main st,<br>
-      New York, New York 11747
+      2510 E Hunt Highway<br>
+      San Tan Valley, AZ 85143
     </div>
     <div class="phone-number">
-      <a href="tel:7182198652">718-219-8652</a>
+      <a href="tel:480-750-3628">480-750-3628</a>
     </div>
   </div>
 </div>

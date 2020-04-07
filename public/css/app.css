@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=montserrat:100,300,400,500,700&display=swap);* {
+@import url(https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css);@import url(https://fonts.googleapis.com/css?family=montserrat:100,300,400,500,700&display=swap);* {
   box-sizing: border-box;
 }
 
@@ -199,24 +199,6 @@ table {
   font-weight: 500;
 }
 
-#about-page .content-box {
-  background: white;
-  padding: 20px;
-  display: flex;
-}
-
-#about-page .content-box .content-text {
-  width: 50%;
-}
-
-#about-page .content-box .content-image {
-  width: 50%;
-}
-
-#about-page .content-box .content-image img {
-  width: 100%;
-}
-
 @media (min-width: 0px) and (max-width: 767px) {
   #about-page {
     padding: 20px;
@@ -225,6 +207,36 @@ table {
 
 @media (min-width: 768px) and (max-width: 991px) {
   #about-page {
+    padding: 20px;
+  }
+}
+
+#waitlist-page {
+  padding: 100px;
+}
+
+#waitlist-page h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 2.5rem;
+}
+
+#waitlist-page p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  #waitlist-page {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #waitlist-page {
     padding: 20px;
   }
 }
@@ -274,6 +286,23 @@ table {
   background: radial-gradient(ellipse at center, #6f865b 0%, #4e6f36 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   overflow: hidden;
+}
+
+#app-layout #content-section .content-box {
+  background: white;
+  padding: 20px;
+}
+
+#app-layout #content-section .content-box .content-text {
+  width: 50%;
+}
+
+#app-layout #content-section .content-box .content-image {
+  width: 50%;
+}
+
+#app-layout #content-section .content-box .content-image img {
+  width: 100%;
 }
 
 #app-layout .side-menu {
