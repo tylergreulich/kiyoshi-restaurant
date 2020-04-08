@@ -18,11 +18,11 @@
             <div class="form-group">
               <label for="guestsInput">Guests</label>
               <select class="form-control" name="guests" id="guestsInput">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
               </select>
             </div>
             <div class="form-group">
@@ -36,9 +36,16 @@
               </select>
             </div>
             <div class="form-group">
-              <button class="btn btn-primary mb-2">Submit</button>
+              <button class="btn btn-primary mb-2" type="submit">Submit</button>
             </div>
           </form>
+      </div>
+      <div class="col-md-6">
+        <p>
+          Please Note: This is not a reservation. 
+          You will be added to the current wait list. 
+          You may have a short wait once you arrive while we prepare your table. 
+        </p>
       </div>
     </div>
   </div>

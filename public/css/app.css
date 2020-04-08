@@ -229,9 +229,33 @@ table {
   font-weight: 500;
 }
 
+#waitlist-page form label {
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: black;
+}
+
+#waitlist-page form .form-control {
+  padding: 10px !important;
+  font-size: 1.3rem;
+  height: auto;
+  box-sizing: border-box;
+  border: 2px solid #4e6f36;
+}
+
+#waitlist-page form button[type=submit] {
+  background: #ee5a2a;
+  border: none;
+  padding: 10px 20px;
+}
+
 @media (min-width: 0px) and (max-width: 767px) {
   #waitlist-page {
     padding: 20px;
+  }
+
+  #waitlist-page h1 {
+    font-size: 2rem;
   }
 }
 
