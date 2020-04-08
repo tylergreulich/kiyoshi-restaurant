@@ -23,7 +23,7 @@
     $colorSecondaryLight 0%,
     $colorSecondary 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  overflow: hidden;
+  // overflow: hidden;
   padding: 100px;
   .status {
     display: inline-block;
@@ -31,7 +31,7 @@
     font-size: 0.8rem;
     font-weight: 700;
     color: $colorWhite;
-    background: black;
+    background: colorBlack;
     border-radius: 5px;
     align-self: flex-start;
     margin-bottom: 20px;

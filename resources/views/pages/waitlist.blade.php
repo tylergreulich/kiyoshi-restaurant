@@ -36,7 +36,7 @@
               </select>
             </div>
             <div class="form-group">
-              <button class="btn btn-primary mb-2" type="submit">Submit</button>
+              <button class="btn btn-primary mb-2" type="submit">Confirm</button>
             </div>
           </form>
       </div>

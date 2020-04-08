@@ -5,6 +5,8 @@
 @import 'home';
 @import 'pages/about';
 @import 'pages/waitlist';
+@import 'pages/offers';
+@import 'menu/index';
 
 body {
   line-height: 1;
@@ -65,7 +67,7 @@ table {
     overflow: hidden;
 
     .content-box {
-      background: white;
+      background: $colorWhite;
       padding: 20px;
 
       .content-text {
@@ -113,7 +115,7 @@ table {
         li {
           a {
             font-size: 1.1rem;
-            color: black;
+            color: $colorBlack;
             font-weight: 700;
             text-decoration: none;
             margin-bottom: 1.4rem;
@@ -199,7 +201,7 @@ table {
       justify-content: center;
       align-items: center;
       text-decoration: none;
-      color: black;
+      color: $colorBlack;
       font-weight: 700;
       span {
         margin-right: 20px;

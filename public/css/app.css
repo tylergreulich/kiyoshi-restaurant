@@ -152,7 +152,6 @@ table {
   /* Chrome10-25,Safari5.1-6 */
   background: radial-gradient(ellipse at center, #6f865b 0%, #4e6f36 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  overflow: hidden;
   padding: 100px;
 }
 
@@ -162,7 +161,7 @@ table {
   font-size: 0.8rem;
   font-weight: 700;
   color: white;
-  background: black;
+  background: colorBlack;
   border-radius: 5px;
   align-self: flex-start;
   margin-bottom: 20px;
@@ -185,10 +184,14 @@ table {
   padding: 100px;
 }
 
+#about-page .content-box {
+  display: flex;
+}
+
 #about-page h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: black;
+  color: #000;
   margin-bottom: 2.5rem;
 }
 
@@ -211,6 +214,13 @@ table {
   }
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+  .content-box {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 #waitlist-page {
   padding: 100px;
 }
@@ -218,7 +228,7 @@ table {
 #waitlist-page h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: black;
+  color: colorBlack;
   margin-bottom: 2.5rem;
 }
 
@@ -232,7 +242,7 @@ table {
 #waitlist-page form label {
   font-weight: 700;
   margin-bottom: 10px;
-  color: black;
+  color: colorBlack;
 }
 
 #waitlist-page form .form-control {
@@ -261,6 +271,99 @@ table {
 
 @media (min-width: 768px) and (max-width: 991px) {
   #waitlist-page {
+    padding: 20px;
+  }
+}
+
+#offers-page {
+  padding: 100px;
+}
+
+#offers-page h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: colorBlack;
+  margin-bottom: 2.5rem;
+}
+
+#offers-page p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+#offers-page form label {
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: colorBlack;
+}
+
+#offers-page form .form-control {
+  padding: 10px !important;
+  font-size: 1.3rem;
+  height: auto;
+  box-sizing: border-box;
+  border: 2px solid #4e6f36;
+}
+
+#offers-page form button[type=submit] {
+  background: #ee5a2a;
+  border: none;
+  padding: 10px 20px;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  #offers-page {
+    padding: 20px;
+  }
+
+  #offers-page h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #offers-page {
+    padding: 20px;
+  }
+}
+
+#menu-page {
+  padding: 100px;
+}
+
+#menu-page #food-preview {
+  padding: 0;
+  background: transparent;
+}
+
+#menu-page #food-preview h2 {
+  color: white;
+  text-transform: uppercase;
+}
+
+#menu-page #food-preview h2 .button-rounded {
+  margin-bottom: 2rem;
+}
+
+#menu-page #food-preview .left-btn,
+#menu-page #food-preview .right-btn {
+  background: #000;
+}
+
+#menu-page #food-preview .container .food-slider .slide:hover .background {
+  background: #000;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  #menu-page {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #menu-page {
     padding: 20px;
   }
 }
@@ -363,7 +466,7 @@ table {
 
 #app-layout .side-menu .menu .links li a {
   font-size: 1.1rem;
-  color: black;
+  color: #000;
   font-weight: 700;
   text-decoration: none;
   margin-bottom: 1.4rem;
@@ -451,7 +554,7 @@ table {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: black;
+  color: #000;
   font-weight: 700;
 }
 

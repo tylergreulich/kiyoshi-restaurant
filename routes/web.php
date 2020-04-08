@@ -33,10 +33,6 @@ Route::get('/offers', function () {
   return view('pages/offers');
 });
 
-Route::get('/giftcards', function () {
-  return view('pages/giftcards');
-});
-
 Route::get('/waitlist', function () {
   return view('pages/waitlist');
 });
