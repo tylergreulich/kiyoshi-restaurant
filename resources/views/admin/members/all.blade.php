@@ -45,32 +45,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($members as $member)
                                                 <tr>
-                                                    <th scope="row">{{$member->id}}</th>
-                                                    <td>{{$member->fname}} {{$member->lname}}</td>
-                                                    <td>{{$member->email}}</td>
-                                                    <td>{{$member->phone_number}}</td>
-                                                    <td>{{date('m/d/Y', strtotime($member->updated_at))}}</td>
+                                                    <th scope="row">id</th>
+                                                    <td>John Smith</td>
+                                                    <td>john@johnsmith.com</td>
+                                                    <td>000-000-0000</td>
+                                                    <td>02-20-2020</td>
                                                     
                                                     <td>
                                                         
-                                                        <a href="#" onclick="event.preventDefault();
-                                document.getElementById('delete-member-{{$member->id}}').submit();">
+                                                        <a href="#">
                                     <i class="far fa-trash-alt"></i>
                                 </a>
-                                <form id="delete-member-{{$member->id}}" action="/admin/members/{{$member->id}}/delete" method="POST" style="display: none;">
-                                                @method('DELETE')
-                                                @csrf
+                                <form id="delete-member-1" action="/admin/members/1/delete" method="POST" style="display: none;">
                                             </form>
 
                                                     </td>
                                                 </tr>    
-                                            @endforeach
                                             
                                         </tbody>
                                     </table>
-                                    {{ $members->links() }}
                                 </div>
                             </div>
                         </div>

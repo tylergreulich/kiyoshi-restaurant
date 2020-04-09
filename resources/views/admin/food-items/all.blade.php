@@ -8,13 +8,13 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">All Reservations</h2>
+                            <h2 class="pageheader-title">Food Items</h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">All Reservations</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Food Items</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -31,44 +31,38 @@
                         <!-- ============================================================== -->
                         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">All Reservations</h5>
+                                <h5 class="card-header">All Food Items</h5>
                                 <div class="card-body">
                                     <table class="table">
                                         <thead>
                                             <tr>
                                                 <th scope="col">id</th>
-                                                <th scope="col">Full Name</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Phone Number</th>
-                                                <th scope="col">Guests Total</th>
-                                                <th scope="col">Time</th>
-                                                <th scope="col">Date Created</th>
+                                                <th scope="col">Title</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Date</th>
                                                 <th scope="col">Edit</th>
                                                 <th scope="col">Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                <th scope="col">id</th>
-                                                <th scope="col">Full Name</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Phone Number</th>
-                                                <th scope="col">guests total</th>
-                                                <th scope="col">2-20-20</th>
-                                                <td>
-                                                    <a href="/admin/reservations/1/edit"><i class="far fa-edit"></i></a>
-                                                </td>
-                                                <td>
-                                                        
+                                                    <th scope="row">1</th>
+                                                    <td>name</td>
+                                                    <td>price</td>
+                                                    <td>02/20/2020</td>
+                                                    <td>
+                                                        <a href="/admin/food-items/1/edit"><i class="far fa-edit"></i></a>
+                                                    </td>
+                                                    <td>
                                                         <a href="#">
                                     <i class="far fa-trash-alt"></i>
                                 </a>
-                                <form id="delete-reservation-1" action="/admin/reservations/1/delete" method="POST" style="display: none;">
+                                <form id="delete-item-1" action="/admin/food-items/1/delete" method="POST" style="display: none;">
+                                                @csrf
                                             </form>
 
                                                     </td>
                                                 </tr>    
-                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -81,5 +75,3 @@
                     </div>
             
 @endsection
-
-

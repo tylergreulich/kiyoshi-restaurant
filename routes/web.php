@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'StaticPagesController@home');
 Route::get('/about', 'StaticPagesController@about');
 Route::get('/contact', 'StaticPagesController@contact');
-Route::get('/waitlist', 'StaticPagesController@waitlist');
+Route::get('/reservations', 'StaticPagesController@reservations');
 Route::get('/offers', 'StaticPagesController@offers');
 Route::get('/menu', 'StaticPagesController@menu');
 Route::get('/menu/{slug}', 'StaticPagesController@singleMenu');
@@ -40,11 +40,33 @@ Route::get(
   'admin\FoodCategoriesController@edit'
 );
 
+// Admin Food Items
+Route::get('/admin/food-items', 'admin\FoodItemsController@index');
+Route::get('/admin/food-items/create', 'admin\FoodItemsController@create');
+Route::get('/admin/food-items/edit', 'admin\FoodItemsController@edit');
+
+// Admin Members
+Route::get('/admin/members', 'admin\MemberController@index');
+Route::get('admin/members/{id}/delete', 'admin\MemberController@delete');
+
+// Admin Reservations
+Route::get('admin/reservations', 'admin\ReservationsController@index');
+Route::delete(
+  'admin/reservations/{id}/delete',
+  'admin\ReservationsController@delete'
+);
+
+// Admin users
+Route::get('admin/users', 'admin\UsersController@all');
+Route::get('admin/users/create', 'admin\UsersController@create');
+Route::put('admin/users/{id}/edit', 'admin\UsersController@edit');
+Route::delete('admin/users/{id}/delete', 'admin\UsersController@delete');
+
 // Admin Authentication
 Route::get('/register', function () {
-  return view('admin/register');
+  return view('/admin/register');
 });
 
 Route::get('/login', function () {
-  return view('admin/login');
+  return view('/admin/login');
 });

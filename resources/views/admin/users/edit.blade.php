@@ -35,47 +35,47 @@
                                 <h5 class="card-header">Edit User</h5>
                                 <div class="card-body">
                                     <form method="POST" action="/admin/users/{{$user->id}}">
-                                        @csrf
-                                        @method('PUT')
+                                        {{-- @csrf
+                                        @method('PUT') --}}
                                         <div class="form-group">
                                             <label for="inputfirstname">First Name</label>
-                                            <input id="inputfirstname" type="text" class="form-control form-control-lg @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname', $user->fname) }}" required autocomplete="name" autofocus placeholder="First Name">
+                                            <input id="inputfirstname" type="text" class="form-control form-control-lg @error('fname') is-invalid @enderror" name="fname" value="firstName" required autocomplete="name" autofocus placeholder="First Name">
 
-                                            @error('fname')
+                                            {{-- @error('fname')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                         <div class="form-group">
                                             <label for="inputlastname">Last Name</label>
-                                            <input id="inputlastname" type="text" class="form-control form-control-lg @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname', $user->lname) }}" required autocomplete="name" autofocus placeholder="Last Name">
+                                            <input id="inputlastname" type="text" class="form-control form-control-lg" name="lname" value="lastName" required autocomplete="name" autofocus placeholder="Last Name">
 
-                                            @error('lname')
+                                            {{-- @error('lname')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                         <div class="form-group">
                                             <label for="inputemail">Email</label>
-                                            <input id="inputemail" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" required autocomplete="email" placeholder="Email">
+                                            <input id="inputemail" type="email" class="form-control form-control-lg" name="email" value="email" required autocomplete="email" placeholder="Email">
 
-                                            @error('email')
+                                            {{-- @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                         <div class="form-group">
                                             <label for="inputpassword">Password</label>
-                                            <input id="inputpassword" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+                                            <input id="inputpassword" type="password" class="form-control form-control-lg" name="password" required autocomplete="new-password" placeholder="Password">
 
-                                            @error('password')
+                                            {{-- @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                         <div class="form-group">
                                             <label for="inputpassword">Confirm Password</label>
@@ -85,13 +85,13 @@
                                         <div class="form-group">
                                             <label for="inputrole">Role</label>
                                             <select name="role_id" class="form-control" id="inputrole">
-                                                @foreach ($roles as $role)
-                                                    <option value="{{$role->id}}" 
+                                                    <option value="value" >
+                                                {{-- @foreach ($roles as $role)
                                                     @if ($role->title == 'Employee')
                                                         selected
                                                     @endif
                                                     >{{$role->title}}</option>
-                                                @endforeach
+                                                @endforeach --}}
                                             </select>
                                         </div>
                                         

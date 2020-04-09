@@ -8,14 +8,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">New Users </h2>
+                            <h2 class="pageheader-title">Edit Food Item </h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="/admin/users" class="breadcrumb-link">All  Users</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">New User</li>
+                                        <li class="breadcrumb-item"><a href="/admin/food-items" class="breadcrumb-link">All  Food Items</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Edit Food Item</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -32,45 +32,38 @@
                         <!-- ============================================================== -->
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">Create a new User</h5>
+                                <h5 class="card-header">Edit this item</h5>
                                 <div class="card-body">
-                                    <form method="POST" action="/admin/users">
+                                    <form method="POST" action="/admin/food-items/1">
                                         <div class="form-group">
-                                            <label for="inputfirstname">First Name</label>
-                                            <input id="inputfirstname" type="text" class="form-control form-control-lg" name="firstName" value="firstName" required autocomplete="name" autofocus placeholder="First Name">
+                                            <label for="inputtitle">Title</label>
+                                            <input id="inputtitle" type="text" class="form-control form-control-lg" name="title" value="title" required autocomplete="title" autofocus placeholder="Give Item a Title">
+
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputlastname">Last Name</label>
-                                            <input id="inputlastname" type="text" class="form-control form-control-lg" name="lname" value="lastName" required autocomplete="name" autofocus placeholder="Last Name">
+                                            <label for="inputprice">Price</label>
+                                            <input id="inputprice" type="text" class="form-control form-control-lg" name="price" value="price" required autocomplete="price" autofocus placeholder="Give Item a Price">
+
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputemail">Email</label>
-                                            <input id="inputemail" type="email" class="form-control form-control-lg" name="email" value="email" required autocomplete="email" placeholder="Email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputpassword">Password</label>
-                                            <input id="inputpassword" type="password" class="form-control form-control-lg" name="password" value="password" required autocomplete="new-password" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputpassword">Confirm Password</label>
-                                            <input id="inputpassword" type="password" class="form-control form-control-lg" name="confirmPassword" required autocomplete="new-password" placeholder="Confirm Password">
-                                        </div>
-                                
-                                        <div class="form-group">
-                                            <label for="inputrole">Role</label>
-                                            <select name="role_id" class="form-control" id="inputrole">
-                                                {{-- @foreach ($roles as $role)
-                                                    <option value="{{$role->id}}" 
-                                                    @if ($role->title == 'Admin')
-                                                        selected
-                                                    @endif
-                                                    >role title</option>
-                                                @endforeach --}}
+                                            <label for="inputcategory">Category</label>
+                                            <select name="category_id" class="form-control" id="inputrole">
+                                                @foreach ($categories as $category)
+                                                    <option value="1"
+                                                    >title</option>
+                                                @endforeach
                                             </select>
                                         </div>
-                                        
-                                        
-                                        
+                                        <div class="form-group">
+                                            <label for="inputimageurl">Image Url</label>
+                                            <input id="inputimageurl" type="text" class="form-control form-control-lg" name="image_url" value="imageUrl" autocomplete="title" autofocus placeholder="Add the url to the Item image">
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputdescription">Description</label>
+                                            <textarea id="inputdescription" type="text" class="form-control form-control-lg" name="description" required autofocus placeholder="Write a Description">description</textarea>
+
+                                        </div>
                                         <div class="row">
                                             <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
                                                 
@@ -94,5 +87,3 @@
             </div>
             
 @endsection
-
-
