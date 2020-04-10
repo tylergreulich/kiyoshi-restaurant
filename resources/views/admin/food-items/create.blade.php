@@ -53,12 +53,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="inputimageurl">Image Url</label>
-                                            <input id="inputimageurl" type="text" class="form-control form-control-lg" name="image_url" value="imageIrl" autocomplete="title" autofocus placeholder="Add the url to the Item image">
+                                            <input id="inputimageurl" type="text" class="form-control form-control-lg" name="imageUrl" value="imageIrl" autocomplete="title" autofocus placeholder="Add the url to the Item image">
 
                                         </div>
                                         <div class="form-group">
                                             <label for="inputdescription">Description</label>
-                                            <textarea id="inputdescription" type="text" class="form-control form-control-lg" name="description" required autofocus placeholder="Write a Description">{{ old('description') }}</textarea>
+                                            <textarea id="inputdescription" type="text" class="form-control form-control-lg" name="description" value="description" required autofocus placeholder="Write a Description">description</textarea>
 
                                         </div>
                                         <div class="row">

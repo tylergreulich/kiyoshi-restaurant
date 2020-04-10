@@ -14,7 +14,7 @@
         <a href="/about">About us</a>
       </li>
       <li>
-        <a href="/reservations">reservations</a>
+        <a href="/reservations">Reservations</a>
       </li>
       <li>
         <a href="/offers">Offers</a>

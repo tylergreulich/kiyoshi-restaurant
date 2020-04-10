@@ -41,7 +41,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="inputlastname">Last Name</label>
-                                            <input id="inputlastname" type="text" class="form-control form-control-lg" name="lname" value="lastName" required autocomplete="name" autofocus placeholder="Last Name">
+                                            <input id="inputlastname" type="text" class="form-control form-control-lg" name="lastName" value="lastName" required autocomplete="name" autofocus placeholder="Last Name">
                                         </div>
                                         <div class="form-group">
                                             <label for="inputemail">Email</label>
@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="inputpassword">Confirm Password</label>
-                                            <input id="inputpassword" type="password" class="form-control form-control-lg" name="confirmPassword" required autocomplete="new-password" placeholder="Confirm Password">
+                                            <input id="inputpassword" type="password" class="form-control form-control-lg" name="confirmPassword" value="confirmPassword" required autocomplete="new-password" placeholder="Confirm Password">
                                         </div>
                                 
                                         <div class="form-group">

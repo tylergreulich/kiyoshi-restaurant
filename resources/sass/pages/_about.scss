@@ -3,12 +3,24 @@
 
   .content-box {
     display: flex;
+
+    .content-text {
+      width: 50%;
+    }
+
+    .content-image {
+      width: 50%;
+
+      img {
+        width: 100%;
+      }
+    }
   }
 
   h1 {
     font-size: 3rem;
     font-weight: 700;
-    color: $colorBlack;
+    color: black;
     margin-bottom: 2.5rem;
   }
 
@@ -21,11 +33,15 @@
 }
 
 @media (min-width: 0px) and (max-width: 767px) {
+  // @include about-responsive;
+
   #about-page {
     padding: 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
+  // @include about-responsive;
+
   #about-page {
     padding: 20px;
   }
