@@ -61,15 +61,14 @@ Route::delete(
 Route::get('admin/users', 'admin\UsersController@all');
 Route::get('admin/users/create', 'admin\UsersController@create');
 Route::put('admin/users/{id}/edit', 'admin\UsersController@edit');
-Route::delete('admin/users/{id}/delete', 'admin\UsersController@delete');
 
 // Admin Authentication
 Route::get('/register', function () {
-  return view('/admin/register');
+  return view('/auth/register');
 });
 
 Route::get('/login', function () {
-  return view('/admin/login');
+  return view('/auth/login');
 });
 
 Auth::routes();

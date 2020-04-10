@@ -22,8 +22,8 @@ class UsersController extends Controller
     return view('admin/users/create');
   }
 
-  public function delete()
+  public function edit()
   {
-    return view('admin/users/delete');
+    return view('admin/users/edit');
   }
 }
