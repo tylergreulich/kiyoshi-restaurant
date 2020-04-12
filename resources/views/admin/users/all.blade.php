@@ -55,13 +55,15 @@
                                                         <a href="/admin/users/{{ $user->id }}/edit"><i class="far fa-edit"></i></a>
                                                     </td>
                                                     <td>
-                                                        <a href="/admin/users/{{$user->id}}/delete" onclick="if (! confirm('Are you sure you want delete category?')) { return false; }">
+                                                        <a href="#" onclick="
+                                                            event.preventDefault();
+                                                            document.getElementById('delete-user-{{ $user->id }}').submit();
+                                                          ">
                                                         <i class="far fa-trash-alt"></i></a>
                                                         
-                                                        <a href="#">
-                                    <i class="far fa-trash-alt"></i>
-                                </a>
-                                <form id="delete-user-1" action="/admin/users/1/delete" method="POST" style="display: none;">
+                                <form id="delete-user-{{ $user->id }}" action="/admin/users/{{ $user->id }}/delete" method="POST" style="display: none;">
+                                    @method("DELETE")
+                                    @csrf
                                             </form>
 
                                                     </td>
