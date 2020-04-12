@@ -35,37 +35,62 @@
                                 <h5 class="card-header">Create a new User</h5>
                                 <div class="card-body">
                                     <form method="POST" action="/admin/users">
+                                        @csrf
                                         <div class="form-group">
                                             <label for="inputfirstname">First Name</label>
-                                            <input id="inputfirstname" type="text" class="form-control form-control-lg" name="firstName" value="firstName" required autocomplete="name" autofocus placeholder="First Name">
+                                            <input id="inputfirstname" type="text" class="form-control form-control-lg @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="name" autofocus placeholder="First Name">
+
+                                            @error('fname')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="inputlastname">Last Name</label>
-                                            <input id="inputlastname" type="text" class="form-control form-control-lg" name="lastName" value="lastName" required autocomplete="name" autofocus placeholder="Last Name">
+                                            <input id="inputlastname" type="text" class="form-control form-control-lg @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required autocomplete="name" autofocus placeholder="Last Name">
+
+                                            @error('lname')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="inputemail">Email</label>
-                                            <input id="inputemail" type="email" class="form-control form-control-lg" name="email" value="email" required autocomplete="email" placeholder="Email">
+                                            <input id="inputemail" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="inputpassword">Password</label>
-                                            <input id="inputpassword" type="password" class="form-control form-control-lg" name="password" value="password" required autocomplete="new-password" placeholder="Password">
+                                            <input id="inputpassword" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="inputpassword">Confirm Password</label>
-                                            <input id="inputpassword" type="password" class="form-control form-control-lg" name="confirmPassword" value="confirmPassword" required autocomplete="new-password" placeholder="Confirm Password">
+                                            <input id="inputpassword" type="password" class="form-control form-control-lg" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
                                         </div>
                                 
                                         <div class="form-group">
                                             <label for="inputrole">Role</label>
                                             <select name="role_id" class="form-control" id="inputrole">
-                                                {{-- @foreach ($roles as $role)
-                                                    <option value="{{$role->id}}" 
-                                                    @if ($role->title == 'Admin')
-                                                        selected
-                                                    @endif
-                                                    >role title</option>
-                                                @endforeach --}}
+                                                @foreach ($roles as $role)
+                                                <option 
+                                                    value="{{ $role->id }} 
+                                                    @if ($role->title == 'ADMIN') selected @endif">
+                                                        {{$role->title}}
+                                                </option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         
@@ -94,5 +119,3 @@
             </div>
             
 @endsection
-
-
