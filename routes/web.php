@@ -60,7 +60,8 @@ Route::delete(
 // Admin users
 Route::get('admin/users', 'admin\UsersController@all');
 Route::get('admin/users/create', 'admin\UsersController@create');
-Route::put('admin/users/{id}/edit', 'admin\UsersController@edit');
+Route::get('admin/users/{id}/edit', 'admin\UsersController@edit');
+Route::put('admin/users/{id}', 'admin\UsersController@update');
 
 // Admin Authentication
 Route::get('/register', function () {

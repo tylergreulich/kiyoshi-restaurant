@@ -17,7 +17,7 @@ class UsersController extends Controller
 
   public function all()
   {
-    $users = User::paginate(1);
+    $users = User::paginate(10);
     return view('admin/users/all', [
       'users' => $users,
     ]);
@@ -31,9 +31,42 @@ class UsersController extends Controller
     ]);
   }
 
-  public function edit()
+  public function edit($id)
   {
-    return view('admin/users/edit');
+    $user = User::find($id);
+    $roles = Role::All();
+
+    return view('admin/users/edit', [
+      'user' => $user,
+      'roles' => $roles,
+    ]);
+  }
+
+  public function update($id)
+  {
+    request()->validate([
+      'fname' => ['required', 'string', 'max:255'],
+      'lname' => ['required', 'string', 'max:255'],
+      'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+      'password' => ['required', 'string', 'min:8', 'confirmed'],
+      'role_id' => ['required'],
+    ]);
+
+    $user = User::find($id);
+    $user->fname = request('fname');
+    $user->lname = request('lname');
+    $user->email = request('email');
+
+    $newPassword = request('password');
+
+    if ($newPassword) {
+      $user->password = Hash::make($newPassword);
+    }
+
+    $user->save();
+    $user->roles()->sync([request('role_id')]);
+
+    return redirect('/admin/users');
   }
 
   public function store()
