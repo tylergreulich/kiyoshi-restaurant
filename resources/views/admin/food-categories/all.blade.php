@@ -44,26 +44,32 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($categories as $category)
                                                 <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Burgers</td>
-                                                    <td>2/20/2020</td>
+                                                    <th scope="row">{{$category->id}}</th>
+                                                    <td>{{$category->title}} </td>
+                                                    <td>{{date('m/d/Y', strtotime($category->updated_at))}}</td>
                                                     <td>
-                                                        <a href="/admin/food-categories/1/edit"><i class="far fa-edit"></i></a>
+                                                        <a href="/admin/food-categories/{{$category->id}}/edit"><i class="far fa-edit"></i></a>
                                                     </td>
                                                     <td>
                                                         
-                                                        <a href="#">
+                                                        <a href="#" onclick="event.preventDefault();
+                                document.getElementById('delete-category-{{$category->id}}').submit();">
                                     <i class="far fa-trash-alt"></i>
                                 </a>
-                                <form id="delete-category-1" action="/admin/food-categories/1/delete" method="POST" style="display: none;">
+                                <form id="delete-category-{{$category->id}}" action="/admin/food-categories/{{$category->id}}/delete" method="POST" style="display: none;">
+                                                @method('DELETE')
+                                                @csrf
                                             </form>
 
                                                     </td>
                                                 </tr>    
+                                            @endforeach
                                             
                                         </tbody>
                                     </table>
+                                    {{ $categories->links() }}
                                 </div>
                             </div>
                         </div>
@@ -74,5 +80,3 @@
                     </div>
             
 @endsection
-
-

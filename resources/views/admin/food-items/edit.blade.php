@@ -34,35 +34,60 @@
                             <div class="card">
                                 <h5 class="card-header">Edit this item</h5>
                                 <div class="card-body">
-                                    <form method="POST" action="/admin/food-items/1">
+                                    <form method="POST" action="/admin/food-items/{{$item->id}}">
+                                        @csrf
+                                        @method('PUT')
                                         <div class="form-group">
                                             <label for="inputtitle">Title</label>
-                                            <input id="inputtitle" type="text" class="form-control form-control-lg" name="title" value="title" required autocomplete="title" autofocus placeholder="Give Item a Title">
+                                            <input id="inputtitle" type="text" class="form-control form-control-lg @error('title') is-invalid @enderror" name="title" value="{{ old('title', $item->title) }}" required autocomplete="title" autofocus placeholder="Give Item a Title">
 
+                                            @error('title')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="inputprice">Price</label>
-                                            <input id="inputprice" type="text" class="form-control form-control-lg" name="price" value="price" required autocomplete="price" autofocus placeholder="Give Item a Price">
+                                            <input id="inputprice" type="text" class="form-control form-control-lg @error('price') is-invalid @enderror" name="price" value="{{ old('price', $item->price) }}" required autocomplete="price" autofocus placeholder="Give Item a Price">
 
+                                            @error('price')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="inputcategory">Category</label>
                                             <select name="category_id" class="form-control" id="inputrole">
                                                 @foreach ($categories as $category)
-                                                    <option value="1"
-                                                    >title</option>
+                                                    <option value="{{$category->id}}"
+                                                    @if ($category->id == $item->category_id)
+                                                        selected
+                                                    @endif
+                                                    >{{$category->title}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="inputimageurl">Image Url</label>
-                                            <input id="inputimageurl" type="text" class="form-control form-control-lg" name="image_url" value="imageUrl" autocomplete="title" autofocus placeholder="Add the url to the Item image">
+                                            <input id="inputimageurl" type="text" class="form-control form-control-lg @error('image_url') is-invalid @enderror" name="image_url" value="{{ old('image_url', $item->image_url) }}" autocomplete="title" autofocus placeholder="Add the url to the Item image">
 
+                                            @error('image_url')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="inputdescription">Description</label>
-                                            <textarea id="inputdescription" type="text" class="form-control form-control-lg" name="description" required autofocus placeholder="Write a Description">description</textarea>
+                                            <textarea id="inputdescription" type="text" class="form-control form-control-lg @error('description') is-invalid @enderror" name="description" required autofocus placeholder="Write a Description">{{ old('description', $item->description) }}</textarea>
 
+                                            @error('description')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">

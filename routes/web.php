@@ -40,6 +40,15 @@ Route::get(
   '/admin/food-categories/{id}/edit',
   'admin\FoodCategoriesController@edit'
 );
+Route::put(
+  'admin/food-categories/{id}',
+  'admin\FoodCategoriesController@update'
+);
+Route::delete(
+  'admin/food-categories/{id}/delete',
+  'admin\FoodCategoriesController@delete'
+);
+Route::get('admin/food-categories', 'admin\FoodCategoriesController@store');
 
 // Admin Food Items
 Route::get('/admin/food-items', 'admin\FoodItemsController@index');

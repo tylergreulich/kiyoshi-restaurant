@@ -45,26 +45,31 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($items as $item)
                                                 <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>name</td>
-                                                    <td>price</td>
-                                                    <td>02/20/2020</td>
+                                                    <th scope="row">{{$item->id}}</th>
+                                                    <td>{{$item->title}} </td>
+                                                    <td>{{$item->price}} </td>
+                                                    <td>{{date('m/d/Y', strtotime($item->updated_at))}}</td>
                                                     <td>
-                                                        <a href="/admin/food-items/1/edit"><i class="far fa-edit"></i></a>
+                                                        <a href="/admin/food-items/{{$item->id}}/edit"><i class="far fa-edit"></i></a>
                                                     </td>
                                                     <td>
-                                                        <a href="#">
+                                                        <a href="#" onclick="event.preventDefault();
+                                document.getElementById('delete-item-{{$item->id}}').submit();">
                                     <i class="far fa-trash-alt"></i>
                                 </a>
-                                <form id="delete-item-1" action="/admin/food-items/1/delete" method="POST" style="display: none;">
+                                <form id="delete-item-{{$item->id}}" action="/admin/food-items/{{$item->id}}/delete" method="POST" style="display: none;">
+                                                @method('DELETE')
                                                 @csrf
                                             </form>
 
                                                     </td>
                                                 </tr>    
+                                            @endforeach
                                         </tbody>
                                     </table>
+                                    {{ $items->links() }}
                                 </div>
                             </div>
                         </div>
@@ -75,3 +80,4 @@
                     </div>
             
 @endsection
+
