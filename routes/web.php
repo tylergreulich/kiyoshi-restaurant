@@ -56,7 +56,13 @@ Route::get('admin/food-categories', 'admin\FoodCategoriesController@store');
 // Admin Food Items
 Route::get('/admin/food-items', 'admin\FoodItemsController@index');
 Route::get('/admin/food-items/create', 'admin\FoodItemsController@create');
-Route::get('/admin/food-items/edit', 'admin\FoodItemsController@edit');
+Route::get('/admin/food-items/{id}/edit', 'admin\FoodItemsController@edit');
+Route::put('/admin/food-items/{id}', 'admin\FoodItemsController@update');
+Route::post('admin/food-items', 'admin\FoodItemsController@store');
+Route::delete(
+  'admin/food-items/{id}/delete',
+  'admin\FoodItemsController@delete'
+);
 
 // Admin Members
 Route::get('/admin/members', 'admin\MemberController@index');
