@@ -30,7 +30,7 @@
                                             <div id="submenu-2-1" class="collapse submenu" style="">
                                                 <ul class="nav flex-column">
                                                   <li class="nav-item">
-                                                    <a class="nav-link" href="/admin/food-categories">All Food Categories <span class="badge badge-secondary">New</span></a>
+                                                    <a class="nav-link" href="/admin/food-categories/all">All Food Categories <span class="badge badge-secondary">New</span></a>
                                                   </li>
                                                   <li class="nav-item">
                                                     <a class="nav-link" href="/admin/food-categories/create">New Food Category <span class="badge badge-secondary">New</span></a>

@@ -57,7 +57,7 @@ class FoodCategoriesController extends Controller
     $category->image_url = request('image_url');
     $category->save();
 
-    return redirect('/admin/food-categories');
+    return redirect('/admin/food-categories/all');
   }
   public function delete($id)
   {

@@ -35,29 +35,36 @@
                                 <h5 class="card-header">Create a new category</h5>
                                 <div class="card-body">
                                     <form method="POST" action="/admin/food-categories">
+                                        @csrf
                                         <div class="form-group">
                                             <label for="inputtitle">Title</label>
-                                            <input id="inputtitle" type="text" class="form-control form-control-lg" required autocomplete="title" value="title" autofocus placeholder="Give Category a Title">
+                                            <input id="inputtitle" type="text" class="form-control form-control-lg @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" autofocus placeholder="Give Category a Title">
 
+                                            @error('title')
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>message</strong>
+                                                    <strong>{{ $message }}</strong>
                                                 </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="inputimageurl">Image Url</label>
-                                            <input id="inputimageurl" type="text" class="form-control form-control-lg" name="image_url" value="imageUrl" required autocomplete="title" autofocus placeholder="Add the url to the category image">
+                                            <input id="inputimageurl" type="text" class="form-control form-control-lg @error('image_url') is-invalid @enderror" name="image_url" value="{{ old('image_url') }}" required autocomplete="title" autofocus placeholder="Add the url to the category image">
 
+                                            @error('image_url')
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>message</strong>
+                                                    <strong>{{ $message }}</strong>
                                                 </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="inputdescription">Description</label>
-                                            <textarea id="inputdescription" type="text" class="form-control form-control-lg" name="description" required autofocus placeholder="Write a Description">descripton</textarea>
+                                            <textarea id="inputdescription" type="text" class="form-control form-control-lg @error('description') is-invalid @enderror" name="description" required autofocus placeholder="Write a Description">{{ old('description') }}</textarea>
 
+                                            @error('description')
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>message</strong>
+                                                    <strong>{{ $message }}</strong>
                                                 </span>
+                                            @enderror
                                         </div>
                                         
                                         
@@ -87,5 +94,3 @@
             </div>
             
 @endsection
-
-

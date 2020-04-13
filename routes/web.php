@@ -31,7 +31,10 @@ Route::get('/admin/users', function () {
 });
 
 // Admin Food Categories
-Route::get('/admin/food-categories', 'admin\FoodCategoriesController@index');
+Route::get(
+  '/admin/food-categories/all',
+  'admin\FoodCategoriesController@index'
+);
 Route::get(
   '/admin/food-categories/create',
   'admin\FoodCategoriesController@create'
