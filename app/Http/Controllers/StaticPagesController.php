@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\FoodItem;
+use App\FoodCategory;
 use Illuminate\Http\Request;
 
 class StaticPagesController extends Controller
 {
   public function home()
   {
-    return view('home');
+    $categories = FoodCategory::All();
+
+    return view('home', [
+      'categories' => $categories,
+    ]);
   }
 
   public function about()
@@ -36,8 +42,14 @@ class StaticPagesController extends Controller
     return view('menu/index');
   }
 
-  public function singleMenu()
+  public function singleMenu($id)
   {
-    return view('menu/single-menu');
+    $food_items = FoodItem::where('category_id', $id)->get();
+    $food_category = FoodCategory::find($id);
+
+    return view('menu/single-menu', [
+      'food_items' => $food_items,
+      'food_category' => $food_category,
+    ]);
   }
 }

@@ -1,5 +1,5 @@
 
-@extends('../layouts.app')
+@extends('layouts.app')
 
 @section('content')
   <div id="single-menu-page">
@@ -10,22 +10,23 @@
         col-sm-12
        ">
         <div class="content-box">
-          <div class="row">
-            <div class="col-md-12">
-              <h1>Burgers</h1>
-            </div>
-            <div class="col-md-6">
+              <h1>{{ $food_category->title }}</h1>
+            <div class="col-md-12 food-items-container" style="padding: 0;">
+            @foreach ($food_items as $food_item)
+            <div style="padding: 0;">
               <div class="item">
                 <div class="title">
-                  <h4>Texas Burgers</h4>
-                  <span class="price">$9</span>
+                  <h4>{{ $food_item->title }}</h4>
+                  <span class="price">${{ $food_item->price }}</span>
                 </div>
                 <div class="description">
-                  <p>Bread, Meat, Tomato, Cheese, BBQ Sauce</p>
+                  <p>{{ $food_item->description }}</p>
                 </div>
               </div>
+             </div>
+             @endforeach
             </div>
-          </div>
+         </div>
         </div>
       </div>
     </div>

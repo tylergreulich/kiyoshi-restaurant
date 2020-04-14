@@ -6,6 +6,7 @@
     font-size: 3rem;
     color: $colorSecondary;
     margin-bottom: 2rem;
+    text-align: center;
   }
 
   .item {
@@ -14,12 +15,30 @@
       display: flex;
       width: 100%;
       justify-content: space-between;
+      margin-bottom: 1rem;
 
       h4,
       .price {
         font-size: 1.4rem;
         color: $colorBlack;
         font-weight: 900;
+      }
+    }
+
+    .description {
+      line-height: 1.5;
+    }
+  }
+
+  .row {
+    .content-box {
+      padding: 40px;
+
+      .food-items-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 3rem;
+        width: 100%;
       }
     }
   }

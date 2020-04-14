@@ -3,13 +3,17 @@
 
   .content-box {
     display: flex;
+    padding: 50px;
+    margin-bottom: 3rem;
 
     .content-text {
       width: 50%;
+      padding-right: 7rem;
     }
 
     .content-image {
       width: 50%;
+      align-self: center;
 
       img {
         width: 100%;

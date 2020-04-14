@@ -1,6 +1,6 @@
-<div class="side-menu">
+<div class="side-menu {{ Request::is('about') ? 'fixed-menu' : '' }}">
   <a href="/" class="logo">
-    <img src="img/kiyoshi-logo.png">
+    <img src="/img/kiyoshi-logo.png">
   </a>
   <div class="menu">
     <div class="menu-title">
@@ -12,9 +12,6 @@
       </li>
       <li>
         <a href="/about">About us</a>
-      </li>
-      <li>
-        <a href="/reservations">Reservations</a>
       </li>
       <li>
         <a href="/offers">Offers</a>

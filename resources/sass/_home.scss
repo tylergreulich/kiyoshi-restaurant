@@ -23,11 +23,10 @@
     $colorSecondaryLight 0%,
     $colorSecondary 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  // overflow: hidden;
   padding: 100px;
   .status {
     display: inline-block;
-    padding: 10px 15px;
+    padding: 10px 0;
     font-size: 0.8rem;
     font-weight: 700;
     color: $colorWhite;
@@ -45,16 +44,6 @@
   }
   .yaki-udon {
     width: 47.5%;
-    // max-width: 1000px;
-    // animation: moveUpandDown 1s linear infinite;
     position: relative;
   }
-  // @keyframes moveUpandDown {
-  //   0%, 100%{
-  //     bottom:0;
-  //   }
-  //   50%{
-  //     bottom:30px;
-  //   }
-  // }
 }
