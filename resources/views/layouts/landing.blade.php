@@ -7,9 +7,7 @@
         <section id="app-layout">
     @include('includes.side-menu')
     <div class="welcome-jumbo">
-      <div class="status">NEW</div>
-      <h1>Yaki Udon</h1>
-      <img src="/img/udon-2.png" class="yaki-udon">
+      <h1>Some Text here</h1>
     </div>
   </section>
   @yield('content')

@@ -39,7 +39,11 @@ class StaticPagesController extends Controller
 
   public function menu()
   {
-    return view('menu/index');
+    $food_categories = FoodCategory::All();
+
+    return view('menu/index', [
+      'food_categories' => $food_categories,
+    ]);
   }
 
   public function singleMenu($id)

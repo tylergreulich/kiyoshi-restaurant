@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
       <link rel="stylesheet" href="/css/app.css">
+      <link href="https://fonts.googleapis.com/css2?family=Cardo&display=swap" rel="stylesheet"> 
     <body>
         <section id="app-layout">
             @include('includes.side-menu')
