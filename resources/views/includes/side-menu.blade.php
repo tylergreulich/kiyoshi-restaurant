@@ -1,7 +1,7 @@
 <div class="side-menu {{ Request::is('about') ? 'fixed-menu' : '' }}">
   <nav>
     <a href="/" class="logo">
-      <img src="/img/kiyoshi-logo.png">
+      <img src="/img/resized.png">
     </a>
     <div class="menu">
       <ul class="links">
@@ -16,6 +16,9 @@
         </li>
         <li>
           <a href="/contact">Contact</a>
+        </li>
+        <li>
+          <a href="/menu">Order</a>
         </li>
       </ul>
     </div>
