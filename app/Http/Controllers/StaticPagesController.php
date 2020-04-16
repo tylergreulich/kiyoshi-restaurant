@@ -8,14 +8,17 @@ use Illuminate\Http\Request;
 
 class StaticPagesController extends Controller
 {
-  public function home()
+  public function index()
   {
-    $categories = FoodCategory::All();
-
-    return view('home', [
-      'categories' => $categories,
-    ]);
+    return view('index');
   }
+
+  // public function home()
+  // {
+  //   $food_categories = FoodCategory::All();
+
+  //   return response()->json($food_categories);
+  // }
 
   public function about()
   {

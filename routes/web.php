@@ -15,7 +15,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 // Static Pages
-Route::get('/', 'StaticPagesController@home');
+Route::get('/{any}', 'StaticPagesController@index')->where('any', '.*');
+
+// Food Categories
+Route::get('/api/food-categories', 'FoodCategoriesController@allFoodCategories');
+
+// Route::get('/', 'StaticPagesController@home');
 Route::get('/about', 'StaticPagesController@about');
 Route::get('/contact', 'StaticPagesController@contact');
 Route::get('/reservations', 'StaticPagesController@reservations');

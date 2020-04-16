@@ -8,7 +8,7 @@
 @import 'menu/index';
 @import 'menu/single-menu';
 @import 'home';
-@import 'bootstrap.min.css';
+@import 'pages/landing/index';
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
 
@@ -53,87 +53,83 @@ table {
   height: 100vh;
   font-family: 'Montserrat';
 
-  .fixed-menu {
-    position: fixed !important;
-  }
-
-  .side-menu {
-    position: absolute;
-    background: white;
-    padding: 50px;
-    height: 100vh;
-    width: 300px;
-    .logo {
+  // .nav-container {
+  //   position: absolute;
+  //   background: white;
+  //   padding: 50px;
+  //   height: 100vh;
+  //   width: 300px;
+  //   .logo {
+  //     display: flex;
+  //     justify-content: center;
+  //     margin-bottom: 50px;
+  //     img {
+  //       max-width: 250px;
+  //     }
+  //   }
+  //   .menu {
+  //     margin-bottom: 50px;
+  //     .menu-title {
+  //       text-transform: uppercase;
+  //       color: $colorPrimary;
+  //       font-weight: 700;
+  //       font-size: 1.2rem;
+  //       border-bottom: 1px solid #e2eaef;
+  //       padding-bottom: 20px;
+  //       margin-bottom: 20px;
+  //     }
+  //     .links {
+  //       li {
+  //         a {
+  //           font-size: 1.1rem;
+  //           color: black;
+  //           font-weight: 700;
+  //           text-decoration: none;
+  //           margin-bottom: 1.4rem;
+  //           display: block;
+  //           transition: color 0.3s ease-in-out;
+  //           &:hover {
+  //             color: $colorPrimary;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  .social-icons {
+    display: flex;
+    a {
       display: flex;
       justify-content: center;
-      margin-bottom: 50px;
-      img {
-        max-width: 250px;
-      }
+      align-items: center;
+      background: #c2c8cc;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: white;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
     }
-    .menu {
-      margin-bottom: 50px;
-      .menu-title {
-        text-transform: uppercase;
-        color: $colorPrimary;
-        font-weight: 700;
-        font-size: 1.2rem;
-        border-bottom: 1px solid #e2eaef;
-        padding-bottom: 20px;
-        margin-bottom: 20px;
-      }
-      .links {
-        li {
-          a {
-            font-size: 1.1rem;
-            color: black;
-            font-weight: 700;
-            text-decoration: none;
-            margin-bottom: 1.4rem;
-            display: block;
-            transition: color 0.3s ease-in-out;
-            &:hover {
-              color: $colorPrimary;
-            }
-          }
-        }
-      }
+  }
+  .location {
+    align-self: center;
+    position: absolute;
+    bottom: 100px;
+    .address {
+      color: #7a8d99;
+      margin-bottom: 20px;
+      line-height: 1.7;
     }
-    .social-icons {
-      display: flex;
+    .phone-number {
       a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #c2c8cc;
-        font-size: 0.9rem;
+        color: $colorPrimary;
+        font-size: 2rem;
+        font-weight: 700;
         text-decoration: none;
-        color: white;
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-        margin-right: 10px;
-      }
-    }
-    .location {
-      align-self: center;
-      position: absolute;
-      bottom: 100px;
-      .address {
-        color: #7a8d99;
-        margin-bottom: 20px;
-        line-height: 1.7;
-      }
-      .phone-number {
-        a {
-          color: $colorPrimary;
-          font-size: 2rem;
-          font-weight: 700;
-          text-decoration: none;
-        }
       }
     }
   }
+  // }
   #content-section {
     transform: translate3d(300px, 0, 0);
     max-width: calc(100vw - 300px);
@@ -156,90 +152,6 @@ table {
       $colorSecondary 100%
     ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     // overflow: hidden;
-  }
-}
-#information {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 100vh;
-  .restaurant-image {
-    overflow: hidden;
-    height: 100%;
-    img {
-      width: 100%;
-      // height: 500px;
-      // object-fit: cover;
-      // object-position: 0 0;
-    }
-  }
-  .info {
-    padding: 100px 50px 140px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    h2 {
-      text-transform: uppercase;
-    }
-
-    .paragraphs {
-      display: grid;
-      grid-template-columns: 50% 50%;
-      grid-gap: 20px;
-      line-height: 1.7;
-      color: #525e66;
-      font-size: 1.1rem;
-      margin-bottom: 4rem;
-    }
-    .about-link {
-      font-size: 1.8rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      color: black;
-      margin-top: 1rem;
-      font-weight: 700;
-
-      .about-button {
-        @include button-styles($colorSecondary);
-      }
-
-      span {
-        margin-right: 20px;
-      }
-      .circle-right {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-        background: $colorSecondaryLight; /* Old browsers */
-        background: -moz-radial-gradient(
-          center,
-          ellipse cover,
-          $colorSecondaryLight 0%,
-          $colorSecondary 100%
-        ); /* FF3.6-15 */
-        background: -webkit-radial-gradient(
-          center,
-          ellipse cover,
-          $colorSecondaryLight 0%,
-          $colorSecondary 100%
-        ); /* Chrome10-25,Safari5.1-6 */
-        background: radial-gradient(
-          ellipse at center,
-          $colorSecondaryLight 0%,
-          $colorSecondary 100%
-        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        .fa-chevron-right {
-          color: white;
-          font-size: 1.3rem;
-        }
-      }
-    }
   }
 }
 #food-preview {
