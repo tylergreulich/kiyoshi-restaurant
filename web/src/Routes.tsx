@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import styled from 'styled-components'
+import { Footer } from './components/Footer/Footer'
 import { Navigation } from './components/Navigation/Navigation'
 import { About } from './views/About/About'
 import { Home } from './views/Home'
@@ -24,6 +25,7 @@ export const Routes = () => (
       <ContentSection>
         <Route path="/about" exact component={About} />
       </ContentSection>
+      <Footer />
     </AppLayout>
   </Router>
 )

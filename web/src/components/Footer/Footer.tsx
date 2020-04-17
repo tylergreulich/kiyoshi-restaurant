@@ -1,19 +1,41 @@
+import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import React from 'react'
-import styled from 'styled-components'
-
-const SocialIcons = styled.div``
-const Address = styled.div``
-const Copywrite = styled.div``
+import {
+  Address,
+  FooterWrapper,
+  HoursContainer,
+  PhoneNumber,
+  SocialIcon
+} from './Footer.styles'
 
 export const Footer = () => (
-  <footer>
-    <SocialIcons>
-      <p>icon</p>
-    </SocialIcons>
-    <Address>
-      2510 e hunt highway
-      <br />
-      san tan valley, az 85143
-    </Address>
-  </footer>
+  <FooterWrapper>
+    <div>
+      <SocialIcon
+        icon={faFacebook}
+        style={{
+          marginRight: '2rem'
+        }}
+      />
+      <SocialIcon icon={faTwitter} />
+    </div>
+    <HoursContainer>
+      <span>
+        <strong>Mon - Sat:</strong> 10:30 am - 9:00 pm
+      </span>
+      <span>
+        <strong>Sun:</strong> 11:00 am - 8:00 pm
+      </span>
+    </HoursContainer>
+    <div>
+      <Address>
+        2510 e hunt highway
+        <br />
+        san tan valley, az 85143
+      </Address>
+      <div>
+        <PhoneNumber href="tel:+14807503628">1 (480) 750-3628</PhoneNumber>
+      </div>
+    </div>
+  </FooterWrapper>
 )
