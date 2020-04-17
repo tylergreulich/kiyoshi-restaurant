@@ -4,6 +4,21 @@ import LogoImage from '../../assets/img/resized-logo.png'
 import { Links, Logo, NavContainer, NavWrapper } from './Navigation.styles'
 
 export const Navigation = () => {
+  const [scrollPosition, setSrollPosition] = React.useState(0)
+
+  const handleScroll = () => {
+    const position = window.pageYOffset
+    setSrollPosition(position)
+  }
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
     <NavContainer>
       <NavWrapper>
