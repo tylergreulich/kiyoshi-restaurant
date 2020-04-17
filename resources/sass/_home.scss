@@ -1,0 +1,49 @@
+.welcome-jumbo {
+  transform: translate3d(300px, 0, 0);
+  max-width: calc(100vw - 300px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: $colorPrimary; /* Old browsers */
+  background: -moz-radial-gradient(
+    center,
+    ellipse cover,
+    $colorSecondaryLight 0%,
+    $colorSecondary 100%
+  ); /* FF3.6-15 */
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    $colorSecondaryLight 0%,
+    $colorSecondary 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(
+    ellipse at center,
+    $colorSecondaryLight 0%,
+    $colorSecondary 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  padding: 100px;
+  .status {
+    display: inline-block;
+    padding: 10px 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: $colorWhite;
+    background: colorBlack;
+    border-radius: 5px;
+    align-self: flex-start;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    align-self: flex-start;
+    color: $colorWhite;
+    margin-bottom: 100px;
+  }
+  .yaki-udon {
+    width: 47.5%;
+    position: relative;
+  }
+}
