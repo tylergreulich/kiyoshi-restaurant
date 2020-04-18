@@ -14,7 +14,7 @@ const AppLayout = styled.div`
 `
 
 const ContentSection = styled.section`
-  background: ${({ theme }) => theme.main.primary};
+  background: ${({ theme }) => theme.main.white};
 `
 
 export const Routes = () => (

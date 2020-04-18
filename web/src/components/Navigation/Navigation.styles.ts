@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const NavContainer = styled.div`
+interface NavContainerProps {
+  scrollValue: number
+}
+
+export const NavContainer = styled.div<NavContainerProps>`
   position: fixed;
+  z-index: 10;
   background: white;
   height: 10vh;
   width: 100vw;
+  opacity: ${({ scrollValue }) => (scrollValue >= 966 ? '0.9' : '1')};
+  transition: opacity 0.2s ease-in-out;
 `
 
 export const NavWrapper = styled.nav`

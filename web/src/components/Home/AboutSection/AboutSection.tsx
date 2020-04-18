@@ -1,7 +1,7 @@
 import React from 'react'
 import AboutSectionImage from '../../../assets/img/people-in-a-restaurant.jpg'
-import { MyBaseButton as AboutButton } from '../../../utils/styles/MyBaseButton'
 import {
+  AboutButton,
   AboutLink,
   AboutSectionWrapper,
   Information,

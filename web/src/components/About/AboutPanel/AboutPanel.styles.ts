@@ -6,7 +6,7 @@ export const AboutWrapper = styled.figure`
 
 export const ContentBox = styled.div`
   display: flex;
-  padding: 50px;
+  padding: 100px;
   margin-bottom: 3rem;
 `
 

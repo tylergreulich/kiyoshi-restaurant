@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { MyBaseButton } from './../../../utils/styles/MyBaseButton'
 
 export const AboutSectionWrapper = styled.section`
   display: grid;
@@ -36,7 +37,7 @@ export const Paragraphs = styled.div`
   line-height: 1.7;
   color: #525e66;
   font-size: 1.1rem;
-  margin: 4rem 0 5.5rem;
+  margin: 4rem 0 4.5rem;
 `
 
 export const AboutLink = styled(Link)`
@@ -48,4 +49,8 @@ export const AboutLink = styled(Link)`
   color: black;
   margin-top: 1rem;
   font-weight: 700;
+`
+
+export const AboutButton = styled(MyBaseButton)`
+  padding: 0.75rem 1.5rem;
 `

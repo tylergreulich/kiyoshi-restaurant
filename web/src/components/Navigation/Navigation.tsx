@@ -13,14 +13,15 @@ export const Navigation = () => {
 
   React.useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true })
+    console.log(scrollPosition)
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [scrollPosition])
 
   return (
-    <NavContainer>
+    <NavContainer scrollValue={scrollPosition}>
       <NavWrapper>
         <Logo to="/">
           <img src={LogoImage} alt="Logo" />

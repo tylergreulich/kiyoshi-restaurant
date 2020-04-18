@@ -1,10 +1,14 @@
 import React from 'react'
-import { WelcomeJumbo } from './Hero.styles'
+import { JumboOverlay, WelcomeJumbo } from './Hero.styles'
 
 export const Hero = () => {
   return (
     <WelcomeJumbo>
-      <p>Hero Image</p>
+      <p>
+        Welcome to <br />
+        <span>Kiyoshi's Bar and Grill</span>
+      </p>
+      <JumboOverlay />
     </WelcomeJumbo>
   )
 }
