@@ -49,8 +49,12 @@ export const Links = styled.ul`
       display: block;
       transition: color 0.3s ease-in-out;
       &:hover {
-        color: ${({ theme }) => theme.main.primary};
+        color: ${({ theme }) => theme.main.secondary};
       }
+    }
+
+    .active {
+      color: ${({ theme }) => theme.main.secondary};
     }
   }
 `
