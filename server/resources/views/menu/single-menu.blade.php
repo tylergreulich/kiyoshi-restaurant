@@ -2,8 +2,8 @@
 @extends('layouts.app')
 
 @section('content')
-  <div id="single-menu-page">
-    <div class="row">
+  <div id="single-menu-page"
+    <div class="row">>
       <div class="
         col-md-10 offset-md-1
         offset-lg-2 col-lg-8

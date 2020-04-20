@@ -5,6 +5,7 @@ import { Footer } from './components/Footer/Footer'
 import { Navigation } from './components/Navigation/Navigation'
 import { About } from './views/About/About'
 import { Home } from './views/Home'
+import { Menu } from './views/Menu'
 
 const AppLayout = styled.div`
   display: grid;
@@ -24,6 +25,7 @@ export const Routes = () => (
       <Route path="/" exact component={Home} />
       <ContentSection>
         <Route path="/about" exact component={About} />
+        <Route path="/menu" exact component={Menu} />
       </ContentSection>
       <Footer />
     </AppLayout>

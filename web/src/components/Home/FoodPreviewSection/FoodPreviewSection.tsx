@@ -22,7 +22,7 @@ export const FoodPreviewSection = () => {
 
   React.useEffect(() => {
     axios
-      .get<FoodCategory[]>('/api/food-categories/all')
+      .get<FoodCategory[]>('/api/menu-preview')
       .then(({ data }) => setFoodCategories(data))
       .catch((error) => console.error(error))
   }, [])

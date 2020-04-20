@@ -25,11 +25,6 @@ class StaticPagesController extends Controller
     return view('pages/about');
   }
 
-  public function reservations()
-  {
-    return view('pages/reservations');
-  }
-
   public function contact()
   {
     return view('pages/contact');
@@ -38,15 +33,6 @@ class StaticPagesController extends Controller
   public function offers()
   {
     return view('pages/offers');
-  }
-
-  public function menu()
-  {
-    $food_categories = FoodCategory::All();
-
-    return view('menu/index', [
-      'food_categories' => $food_categories,
-    ]);
   }
 
   public function singleMenu($id)
