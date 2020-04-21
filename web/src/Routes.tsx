@@ -5,6 +5,7 @@ import { Footer } from './components/Footer/Footer'
 import { Navigation } from './components/Navigation/Navigation'
 import { About } from './views/About/About'
 import { Home } from './views/Home'
+import { Login } from './views/Login'
 import { Menu } from './views/Menu'
 
 const AppLayout = styled.div`
@@ -26,6 +27,7 @@ export const Routes = () => (
       <ContentSection>
         <Route path="/about" exact component={About} />
         <Route path="/menu" exact component={Menu} />
+        <Route path="/login" exact component={Login} />
       </ContentSection>
       <Footer />
     </AppLayout>

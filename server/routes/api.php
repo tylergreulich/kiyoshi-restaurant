@@ -39,3 +39,27 @@ Route::get('/menu', function() {
 Route::get('/menu-preview', function() {
 	return FoodCategory::All();
 });
+
+Route::post('/login/{loginPayload}', function(Request $request) {
+	$request->validate([
+		'loginPayload.email' => 'required',
+		'loginPayload.password' => 'required'
+	]);
+
+
+});
+
+Route::group([
+
+    'middleware' => 'api',
+    // 'namespace' => 'App\Http\Controllers',
+    'prefix' => 'auth'
+
+], function ($router) {
+
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+
+});
