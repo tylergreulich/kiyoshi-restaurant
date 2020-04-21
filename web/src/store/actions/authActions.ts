@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import cookie from 'js-cookie'
 import { AppThunk, SET_LOGIN, SET_LOGOUT, User } from './../types'
 
 interface LoginPayload {
@@ -6,16 +7,24 @@ interface LoginPayload {
   password: string
 }
 
+interface LoginResponse {
+  user: User
+  access_token: string
+}
+
 export const login = (payload: LoginPayload): AppThunk => async (dispatch) => {
-  const response = await Axios.post<{ user: User }>(
+  console.log('running')
+  const response = await Axios.post<LoginResponse>(
     '/api/auth/login',
     payload
   ).catch((error: Error) => console.error(error))
 
   if (response) {
+    cookie.set('token', response.data.access_token)
+
     dispatch({
       type: SET_LOGIN,
-      user: response.data.user
+      payload: response.data.user
     })
   }
 }

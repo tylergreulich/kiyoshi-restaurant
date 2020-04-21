@@ -30,6 +30,7 @@ export const authReducer = (
       }
 
     default:
+      return { ...state }
       break
   }
 }

@@ -1,11 +1,13 @@
-import Axios from 'axios'
-import cookie from 'js-cookie'
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { login } from '../../../store/actions/authActions'
 
 export const LoginForm = () => {
   const [email, setEmail] = React.useState<string>('')
   const [password, setPassword] = React.useState<string>('')
   const [errors, setErrors] = React.useState<object>({})
+
+  const dispatch = useDispatch()
 
   return (
     <div className="splash-container">
@@ -33,21 +35,7 @@ export const LoginForm = () => {
                 password
               }
 
-              const res = await Axios.post(
-                '/api/auth/login',
-                data
-              ).catch((error) => setErrors(error.response.data))
-
-              const me = await Axios.get('/api/auth/me').catch((error) =>
-                console.error(error)
-              )
-
-              console.log(me)
-
-              if (res) {
-                cookie.set('token', res.data.access_token)
-                cookie.set('user', res.data.user)
-              }
+              dispatch(login(data))
             }}
           >
             <div className="form-group">
