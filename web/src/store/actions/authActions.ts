@@ -13,7 +13,6 @@ interface LoginResponse {
 }
 
 export const login = (payload: LoginPayload): AppThunk => async (dispatch) => {
-  console.log('running')
   const response = await Axios.post<LoginResponse>(
     '/api/auth/login',
     payload
@@ -21,6 +20,7 @@ export const login = (payload: LoginPayload): AppThunk => async (dispatch) => {
 
   if (response) {
     cookie.set('token', response.data.access_token)
+    console.log(payload)
 
     dispatch({
       type: SET_LOGIN,
