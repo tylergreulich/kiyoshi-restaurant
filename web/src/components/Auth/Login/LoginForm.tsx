@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { login } from '../../../store/actions/authActions'
 
 export const LoginForm = () => {
@@ -8,6 +9,8 @@ export const LoginForm = () => {
   const [errors, setErrors] = React.useState<object>({})
 
   const dispatch = useDispatch()
+
+  const history = useHistory()
 
   return (
     <div className="splash-container">
@@ -35,7 +38,7 @@ export const LoginForm = () => {
                 password
               }
 
-              dispatch(login(data))
+              dispatch(login(data, history))
             }}
           >
             <div className="form-group">

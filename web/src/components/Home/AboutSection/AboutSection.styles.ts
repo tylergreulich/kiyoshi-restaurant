@@ -22,10 +22,12 @@ export const Information = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: #f4f8fb;
 
   h2 {
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 900;
+    color: ${({ theme }) => theme.main.secondary};
   }
 `
 

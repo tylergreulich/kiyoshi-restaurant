@@ -1,4 +1,4 @@
-import axios from 'axios'
+import Axios from 'axios'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FoodCategory } from '../../../common/interfaces/FoodCategory.interface'
@@ -21,15 +21,13 @@ export const FoodPreviewSection = () => {
   >(null)
 
   React.useEffect(() => {
-    axios
-      .get<FoodCategory[]>('/api/menu-preview')
+    Axios.get<FoodCategory[]>('/api/menu-preview')
       .then(({ data }) => setFoodCategories(data))
       .catch((error) => console.error(error))
   }, [])
 
   return (
     <FoodPreviewWrapper>
-      <h2>We have everything you need to kill your hunger</h2>
       <FoodPreviewContainer>
         <FoodSlider>
           <SlidingSystem>

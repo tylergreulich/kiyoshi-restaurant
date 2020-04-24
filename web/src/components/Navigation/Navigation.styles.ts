@@ -7,7 +7,7 @@ interface NavContainerProps {
 
 export const NavContainer = styled.div<NavContainerProps>`
   position: fixed;
-  z-index: 10;
+  z-index: 11;
   background: white;
   height: 10vh;
   width: 100vw;

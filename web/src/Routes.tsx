@@ -1,9 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import styled from 'styled-components'
+import { PrivateRoute } from './components/Auth/PrivateRoute/PrivateRoute'
 import { Footer } from './components/Footer/Footer'
 import { Navigation } from './components/Navigation/Navigation'
 import { About } from './views/About/About'
+import { Admin } from './views/Admin'
 import { Home } from './views/Home'
 import { Login } from './views/Login'
 import { Menu } from './views/Menu'
@@ -19,17 +21,20 @@ const ContentSection = styled.section`
   background: ${({ theme }) => theme.main.white};
 `
 
-export const Routes = () => (
-  <Router>
-    <AppLayout>
-      <Navigation />
-      <Route path="/" exact component={Home} />
-      <ContentSection>
-        <Route path="/about" exact component={About} />
-        <Route path="/menu" exact component={Menu} />
-        <Route path="/login" exact component={Login} />
-      </ContentSection>
-      <Footer />
-    </AppLayout>
-  </Router>
-)
+export const Routes = () => {
+  return (
+    <Router>
+      <AppLayout>
+        <Navigation />
+        <Route path="/" exact component={Home} />
+        <ContentSection>
+          <Route path="/about" exact component={About} />
+          <Route path="/menu" exact component={Menu} />
+          <Route path="/login" exact component={Login} />
+          <PrivateRoute path="/admin" exact component={Admin} />
+        </ContentSection>
+        <Footer />
+      </AppLayout>
+    </Router>
+  )
+}
