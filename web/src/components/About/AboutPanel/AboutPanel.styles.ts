@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const AboutWrapper = styled.figure`
-  padding: 100px;
+  padding: 200px 100px;
 `
 
 export const ContentBox = styled.div`
@@ -18,7 +18,7 @@ export const ContentTextContainer = styled.div`
 export const ContentTitle = styled.h1`
   font-size: 3rem;
   font-weight: 700;
-  color: black;
+  color: ${({ theme }) => theme.main.secondary};
   margin-bottom: 2.5rem;
 `
 

@@ -9,7 +9,6 @@ export const MyBaseButton = styled.button`
   border: 3px solid transparent;
   font-size: 1.25rem;
   transition: all 0.2s ease-in-out;
-  position: absolute;
   margin-top: 0.75rem;
   font-family: 'Montserrat';
 

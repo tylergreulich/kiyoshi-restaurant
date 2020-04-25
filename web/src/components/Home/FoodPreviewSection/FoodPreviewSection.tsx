@@ -1,5 +1,6 @@
 import Axios from 'axios'
 import React from 'react'
+import Fade from 'react-reveal'
 import { Link } from 'react-router-dom'
 import { FoodCategory } from '../../../common/interfaces/FoodCategory.interface'
 import {
@@ -35,22 +36,24 @@ export const FoodPreviewSection = () => {
               foodCategories.map(({ id, title, description, image_url }) => (
                 <Slide key={id}>
                   <Content>
-                    <FoodContainer>
-                      <FoodTitle>{title}</FoodTitle>
-                      <FoodDescription>{description}</FoodDescription>
-                      <Link to={`/menu/${id}`}>
-                        <FoodButton>View More</FoodButton>
-                      </Link>
-                    </FoodContainer>
-                    <div>
-                      <img
-                        src={`${image_url}`}
-                        style={{
-                          width: '95%',
-                          maxWidth: '250px'
-                        }}
-                      />
-                    </div>
+                    <Fade>
+                      <FoodContainer>
+                        <FoodTitle>{title}</FoodTitle>
+                        <FoodDescription>{description}</FoodDescription>
+                        <Link to={`/menu`}>
+                          <FoodButton>View More</FoodButton>
+                        </Link>
+                      </FoodContainer>
+                      <div>
+                        <img
+                          src={`${image_url}`}
+                          style={{
+                            width: '95%',
+                            maxWidth: '250px'
+                          }}
+                        />
+                      </div>
+                    </Fade>
                   </Content>
                 </Slide>
               ))}

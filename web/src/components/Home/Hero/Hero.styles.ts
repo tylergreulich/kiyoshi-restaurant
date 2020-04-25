@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import RestaurantInterior from '../../../assets/img/restaurant-interior.jpg'
+import PersonInKitchen from '../../../assets/img/person-in-kitchen.jpg'
 
 const fadeIn = keyframes`
   0% {
@@ -17,7 +17,7 @@ export const WelcomeJumbo = styled.div`
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  background-image: url(${RestaurantInterior});
+  background-image: url(${PersonInKitchen});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -29,16 +29,52 @@ export const WelcomeJumbo = styled.div`
       font-size: 6rem;
       text-transform: uppercase;
       color: ${({ theme }) => theme.main.primary};
-      animation: ${fadeIn} 0.5s ease-in 0.75s;
-      animation-fill-mode: backwards;
+    }
+
+    span {
+      margin-right: 1rem;
+      z-index: 10;
+      font-size: 2.75rem;
+      color: ${({ theme }) => theme.main.white};
     }
   }
 
   span {
     z-index: 10;
-    font-size: 3.5rem;
-    color: ${({ theme }) => theme.main.white};
-    animation: ${fadeIn} 0.3s ease-in 0.2s;
+  }
+
+  #welcome {
+    animation: ${fadeIn} 0.35s ease-in 0.1s;
+    animation-fill-mode: backwards;
+  }
+
+  #to {
+    animation: ${fadeIn} 0.35s ease-in 0.36s;
+    animation-fill-mode: backwards;
+  }
+
+  #kiyoshi {
+    animation: ${fadeIn} 0.35s ease-in 0.61s;
+    animation-fill-mode: backwards;
+  }
+
+  #teriyaki {
+    animation: ${fadeIn} 0.35s ease-in 0.86s;
+    animation-fill-mode: backwards;
+  }
+
+  #and {
+    animation: ${fadeIn} 0.35s ease-in 1.11s;
+    animation-fill-mode: backwards;
+  }
+
+  #sushi {
+    animation: ${fadeIn} 0.35s ease-in 1.36s;
+    animation-fill-mode: backwards;
+  }
+
+  #arrow {
+    animation: ${fadeIn} 0.35s ease-in 1.61s;
     animation-fill-mode: backwards;
   }
 `
@@ -47,19 +83,15 @@ export const JumboOverlay = styled.div`
   width: 100%;
   height: 100%;
   background: ${({ theme }) => theme.main.black};
-  opacity: 0.6;
+  opacity: 0.75;
   position: absolute;
 `
 
 export const Arrow = styled.section`
-  animation: ${fadeIn} 0.25s ease-in 0.5s;
-  animation-fill-mode: backwards;
-  cursor: pointer;
-  a {
-    padding-top: 80px;
-  }
-  a span {
+  position: relative;
+  span {
     position: absolute;
+    padding-top: 300px;
     top: 80%;
     left: 50%;
     width: 30px;
@@ -68,7 +100,7 @@ export const Arrow = styled.section`
     border-radius: 50px;
     box-sizing: border-box;
   }
-  a span::before {
+  span::before {
     position: absolute;
     top: 10px;
     left: 50%;
@@ -79,7 +111,7 @@ export const Arrow = styled.section`
     border-radius: 100%;
     box-sizing: border-box;
   }
-  a span::after {
+  span::after {
     position: absolute;
     bottom: -18px;
     left: 50%;

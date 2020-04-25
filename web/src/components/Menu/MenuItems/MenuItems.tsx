@@ -24,7 +24,7 @@ export const MenuItems = () => {
         col-sm-12
        "
         >
-          {menuItems && (
+          {menuItems ? (
             <>
               <MenuItem myCategoryTitle="Starters" menuItems={menuItems} />
               <MenuItem
@@ -42,6 +42,8 @@ export const MenuItems = () => {
               <MenuItem myCategoryTitle="Noodles" menuItems={menuItems} />
               <MenuItem myCategoryTitle="Sushi Rolls" menuItems={menuItems} />
             </>
+          ) : (
+            <div style={{ height: '100vh' }}></div>
           )}
         </MenuContainer>
       </div>

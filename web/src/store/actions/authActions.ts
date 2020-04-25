@@ -33,12 +33,14 @@ export const login = (payload: LoginPayload, history: any): AppThunk => async (
   }
 }
 
-export const logout = (): AppThunk => async (dispatch, history: any) => {
+export const logout = (history: any): AppThunk => async (dispatch) => {
   const response = await Axios.post('/api/auth/logout').catch((error) =>
     console.error(error)
   )
 
   if (response) {
+    cookie.remove('token')
+
     dispatch({ type: SET_LOGOUT })
 
     history.push('/')

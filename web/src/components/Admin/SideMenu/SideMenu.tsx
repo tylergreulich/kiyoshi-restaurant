@@ -1,3 +1,4 @@
+import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Divider from '@material-ui/core/Divider'
 import Drawer from '@material-ui/core/Drawer'
@@ -6,9 +7,16 @@ import List from '@material-ui/core/List'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { logout } from '../../../store/actions/authActions'
 import { Dropdown } from './Dropdown/Dropdown'
 
 export const SideMenu = (props: any) => {
+  const history = useHistory()
+
+  const dispatch = useDispatch()
+
   const drawerWidth = 240
 
   const useStyles = makeStyles((theme) => ({
@@ -37,11 +45,18 @@ export const SideMenu = (props: any) => {
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
       width: drawerWidth,
-      padding: '10vh 0'
+      padding: '10vh 0',
+      color: '#fff'
     },
     content: {
       flexGrow: 1,
       padding: theme.spacing(3)
+    },
+    myList: {
+      padding: '2rem 1rem',
+      '.MuiList-padding': {
+        position: 'absolute'
+      }
     }
   }))
 
@@ -59,18 +74,18 @@ export const SideMenu = (props: any) => {
       <Typography
         variant="h5"
         style={{
-          textTransform: 'uppercase',
           fontWeight: 500
         }}
       >
-        Kibou's Teriyaki
+        Kiyoshi's
       </Typography>
       <Divider />
-      <List>
+      <List className={classes.myList}>
         <Dropdown menuLabel="Categories" />
         <Dropdown menuLabel="Items" />
       </List>
       <Divider />
+      <Button onClick={() => dispatch(logout(history))}>Logout</Button>
     </div>
   )
 
