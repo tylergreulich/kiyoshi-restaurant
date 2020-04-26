@@ -26,7 +26,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#e8151b',
+    color: '#fff'
   }
 }))
 
@@ -35,10 +37,12 @@ export const Offers = () => {
 
   const [isSubmitting, setIsSubmitting] = React.useState(false)
 
-  const handleSubmit = () => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
     setIsSubmitting(true)
 
-    setIsSubmitting(false)
+    new Promise(() => setTimeout(() => setIsSubmitting(false), 2000))
   }
 
   return (
@@ -48,7 +52,11 @@ export const Offers = () => {
         <Typography component="h1" variant="h4">
           Sign Up To Receive Offers
         </Typography>
-        <form className={classes.form} noValidate onSubmit={handleSubmit}>
+        <form
+          className={classes.form}
+          noValidate
+          onSubmit={(event) => handleSubmit(event)}
+        >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -102,7 +110,7 @@ export const Offers = () => {
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
+                control={<Checkbox value="allowExtraEmails" />}
                 label="By signing up I acknowledge that I am 18 years or older and want to receive email offers from Kiyoshi's Teriyaki and Sushi."
               />
             </Grid>
@@ -111,10 +119,9 @@ export const Offers = () => {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
             className={classes.submit}
           >
-            Confirm
+            {isSubmitting ? 'Sending...' : 'Confirm'}
           </Button>
         </form>
       </div>

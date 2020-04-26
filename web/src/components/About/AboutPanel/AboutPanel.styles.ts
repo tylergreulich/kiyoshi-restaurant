@@ -1,15 +1,5 @@
 import styled from 'styled-components'
 
-export const AboutWrapper = styled.figure`
-  padding: 200px 100px;
-`
-
-export const ContentBox = styled.div`
-  display: flex;
-  padding: 100px;
-  margin-bottom: 3rem;
-`
-
 export const ContentTextContainer = styled.div`
   width: 50%;
   padding-right: 7rem;

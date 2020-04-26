@@ -7,6 +7,7 @@ import { Navigation } from './components/Navigation/Navigation'
 import ScrollIntoView from './utils/ScrollIntoView'
 import { About } from './views/About/About'
 import { Admin } from './views/Admin'
+import { Contact } from './views/Contact'
 import { Home } from './views/Home/Home'
 import { Login } from './views/Login'
 import { Menu } from './views/Menu'
@@ -32,6 +33,7 @@ export const Routes = () => {
         <ContentSection>
           <Route path="/about" exact component={About} />
           <Route path="/offers" exact component={Offers} />
+          <Route path="/contact" exact component={Contact} />
           <ScrollIntoView>
             <Route path="/menu" exact component={Menu} />
           </ScrollIntoView>

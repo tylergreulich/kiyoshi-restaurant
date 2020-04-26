@@ -1,8 +1,7 @@
 import React from 'react'
+import { PanelWrapper } from '../../../utils/PanelWrapper'
 import { AboutPanelProps } from './AboutPanel.interface'
 import {
-  AboutWrapper,
-  ContentBox,
   ContentImageContainer,
   ContentParagraph,
   ContentTextContainer,
@@ -14,17 +13,13 @@ export const AboutPanel: React.FC<AboutPanelProps> = ({
   paragraph,
   image_url
 }) => (
-  <AboutWrapper>
-    <div>
-      <ContentBox>
-        <ContentTextContainer>
-          <ContentTitle>{title}</ContentTitle>
-          <ContentParagraph>{paragraph}</ContentParagraph>
-        </ContentTextContainer>
-        <ContentImageContainer>
-          <img src={image_url} />
-        </ContentImageContainer>
-      </ContentBox>
-    </div>
-  </AboutWrapper>
+  <PanelWrapper>
+    <ContentTextContainer>
+      <ContentTitle>{title}</ContentTitle>
+      <ContentParagraph>{paragraph}</ContentParagraph>
+    </ContentTextContainer>
+    <ContentImageContainer>
+      <img src={image_url} />
+    </ContentImageContainer>
+  </PanelWrapper>
 )
