@@ -10,6 +10,7 @@ import { Admin } from './views/Admin'
 import { Home } from './views/Home/Home'
 import { Login } from './views/Login'
 import { Menu } from './views/Menu'
+import { Offers } from './views/Offers'
 
 const AppLayout = styled.div`
   display: grid;
@@ -30,6 +31,7 @@ export const Routes = () => {
         <Route path="/" exact component={Home} />
         <ContentSection>
           <Route path="/about" exact component={About} />
+          <Route path="/offers" exact component={Offers} />
           <ScrollIntoView>
             <Route path="/menu" exact component={Menu} />
           </ScrollIntoView>

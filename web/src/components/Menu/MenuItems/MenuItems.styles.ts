@@ -10,6 +10,10 @@ export const MenuWrapper = styled.div`
     margin-bottom: 2rem;
     text-align: center;
   }
+
+  .row {
+    padding: 0 25rem;
+  }
 `
 
 export const MenuContainer = styled.div`
