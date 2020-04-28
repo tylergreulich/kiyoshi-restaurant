@@ -17,4 +17,34 @@ export const ComponentDivider = styled.div`
   h2 {
     text-transform: uppercase;
   }
+
+  ${({ theme }) => theme.lg`
+    p {
+
+      font-size: 1.5rem;
+    }
+
+    span {
+      font-size: 0.9rem;
+    }
+  `}
+
+  ${({ theme }) => theme.md`
+    p {
+
+      font-size: 1.15rem;
+    }
+
+  `}
+
+  ${({ theme }) => theme.sm`
+    p {
+      font-size: 0.9rem;
+    }
+
+    span {
+      font-size: 0.7rem;
+    }
+
+  `}
 `

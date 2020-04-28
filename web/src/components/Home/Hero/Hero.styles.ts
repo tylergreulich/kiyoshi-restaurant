@@ -39,42 +39,66 @@ export const WelcomeJumbo = styled.div`
     }
   }
 
+  ${({ theme }) => theme.lg`
+    div {
+      strong {
+        font-size: 4rem;
+      }
+
+      span {
+        font-size: 2.25rem
+      }
+    }
+  `}
+
+  ${({ theme }) => theme.sm`
+    div {
+      strong {
+        font-size: 3rem;
+      }
+
+      span {
+        font-size: 2rem;
+      }
+    }
+  `}
+
   span {
     z-index: 10;
   }
 
   #welcome {
-    animation: ${fadeIn} 0.35s ease-in 0.1s;
+    animation: ${fadeIn} 0.3s ease-in 0.1s;
     animation-fill-mode: backwards;
   }
 
   #to {
-    animation: ${fadeIn} 0.35s ease-in 0.36s;
+    animation: ${fadeIn} 0.3s ease-in 0.4s;
     animation-fill-mode: backwards;
   }
 
   #kiyoshi {
-    animation: ${fadeIn} 0.35s ease-in 0.61s;
+    animation: ${fadeIn} 0.3s ease-in 0.7s;
     animation-fill-mode: backwards;
   }
 
   #teriyaki {
-    animation: ${fadeIn} 0.35s ease-in 0.86s;
+    animation: ${fadeIn} 0.3s ease-in 1s;
     animation-fill-mode: backwards;
   }
 
   #and {
-    animation: ${fadeIn} 0.35s ease-in 1.11s;
+    animation: ${fadeIn} 0.3s ease-in 1.3s;
     animation-fill-mode: backwards;
   }
 
   #sushi {
-    animation: ${fadeIn} 0.35s ease-in 1.36s;
+    animation: ${fadeIn} 0.3s ease-in 1.6s;
     animation-fill-mode: backwards;
   }
 
   #arrow {
-    animation: ${fadeIn} 0.35s ease-in 1.61s;
+    animation: ${fadeIn} 0.3s ease-in 1.9s;
     animation-fill-mode: backwards;
   }
 `
@@ -91,7 +115,7 @@ export const Arrow = styled.section`
   position: relative;
   span {
     position: absolute;
-    padding-top: 300px;
+    transform: translateY(230%);
     top: 80%;
     left: 50%;
     width: 30px;
@@ -99,6 +123,13 @@ export const Arrow = styled.section`
     margin-left: -15px;
     border-radius: 50px;
     box-sizing: border-box;
+
+    ${({ theme }) => theme.md`
+      transform: translateY(175%);
+    `}
+    ${({ theme }) => theme.sm`
+      transform: translateY(150%);
+    `}
   }
   span::before {
     position: absolute;

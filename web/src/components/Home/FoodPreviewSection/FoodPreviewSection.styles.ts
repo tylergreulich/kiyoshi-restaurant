@@ -32,6 +32,9 @@ export const SlidingSystem = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
+  ${({ theme }) => theme.lg`
+    grid-template-columns: repeat(1, 1fr);
+  `}
 `
 
 export const Slide = styled.figure`
@@ -40,6 +43,10 @@ export const Slide = styled.figure`
   height: 350px;
   display: inline-block;
   white-space: normal;
+
+  ${({ theme }) => theme.lg`
+    height: 320px;
+  `}
 `
 export const Content = styled.div`
   position: absolute;
@@ -56,6 +63,11 @@ export const FoodContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100%;
+
+  ${({ theme }) => theme.sm`
+    margin: 0;
+    text-align: center;
+  `}
 `
 export const FoodTitle = styled.div`
   color: ${({ theme }) => theme.main.secondary};
@@ -76,4 +88,10 @@ export const FoodButton = styled(MyBaseButton)`
   padding: 0.6rem 1.2rem;
   font-size: 0.9rem;
 `
-export const FoodImageWrapper = styled.div``
+export const FoodImageWrapper = styled.div`
+  ${({ theme }) => theme.sm`
+    img {
+      display: none;
+    }
+  `}
+`

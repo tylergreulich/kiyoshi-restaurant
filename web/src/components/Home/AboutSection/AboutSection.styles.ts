@@ -6,13 +6,24 @@ export const AboutSectionWrapper = styled.section`
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 100vh;
+
+  ${({ theme }) => theme.lg`
+    grid-template-columns: 100%;
+  `}
 `
 
 export const RestaurantImage = styled.div`
   overflow: hidden;
   height: 100%;
+
   img {
     width: 100%;
+
+    ${({ theme }) => theme.lg`
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    `}
   }
 `
 
@@ -24,6 +35,10 @@ export const Information = styled.div`
   flex-direction: column;
   background: #f4f8fb;
   height: 100%;
+
+  ${({ theme }) => theme.lg`
+    height: auto;
+  `}
 
   h2 {
     text-transform: uppercase;

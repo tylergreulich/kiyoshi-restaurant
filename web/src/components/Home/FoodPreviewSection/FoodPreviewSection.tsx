@@ -8,6 +8,7 @@ import {
   FoodButton,
   FoodContainer,
   FoodDescription,
+  FoodImageWrapper,
   FoodPreviewContainer,
   FoodPreviewWrapper,
   FoodSlider,
@@ -44,7 +45,7 @@ export const FoodPreviewSection = () => {
                           <FoodButton>View More</FoodButton>
                         </Link>
                       </FoodContainer>
-                      <div>
+                      <FoodImageWrapper>
                         <img
                           src={`${image_url}`}
                           style={{
@@ -52,7 +53,7 @@ export const FoodPreviewSection = () => {
                             maxWidth: '250px'
                           }}
                         />
-                      </div>
+                      </FoodImageWrapper>
                     </Fade>
                   </Content>
                 </Slide>

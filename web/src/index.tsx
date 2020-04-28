@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import './index.css'
+import breakpoints from './mediaQueryBreakpoints'
 import { Routes } from './Routes'
 import { store } from './store/store'
 import { SET_LOGIN, User } from './store/types'
@@ -32,7 +33,7 @@ const renderApp = () => {
   ReactDOM.render(
     <React.StrictMode>
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={{ ...theme, ...breakpoints }}>
           <Routes />
         </ThemeProvider>
       </Provider>

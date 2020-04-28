@@ -3,6 +3,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import {
   Address,
+  AddressContainer,
   FooterWrapper,
   HoursContainer,
   PhoneNumber,
@@ -34,7 +35,7 @@ export const Footer = () => {
           <strong>Sun:</strong> 11:00 am - 8:00 pm
         </span>
       </HoursContainer>
-      <div>
+      <AddressContainer>
         <Address>
           2510 e hunt highway
           <br />
@@ -43,7 +44,7 @@ export const Footer = () => {
         <div>
           <PhoneNumber href="tel:+14807503628">1 (480) 750-3628</PhoneNumber>
         </div>
-      </div>
+      </AddressContainer>
     </FooterWrapper>
   )
 }

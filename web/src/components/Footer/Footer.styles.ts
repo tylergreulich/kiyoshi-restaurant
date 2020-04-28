@@ -3,9 +3,9 @@ import styled from 'styled-components'
 
 export const FooterWrapper = styled.footer`
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  height: 10vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 15vh;
   align-items: center;
   background: ${({ theme }) => theme.main.primary};
   width: 100%;
@@ -22,6 +22,10 @@ export const SocialIcon = styled(FontAwesomeIcon)`
   &:hover {
     color: ${({ theme }) => theme.main.black};
   }
+
+  ${({ theme }) => theme.sm`
+    font-size: 1.5rem;
+  `}
 `
 
 export const HoursContainer = styled.div`
@@ -35,13 +39,53 @@ export const HoursContainer = styled.div`
       margin-right: 0.25rem;
     }
   }
+
+  ${({ theme }) => theme.md`
+    span {
+      font-size: 0.8rem;
+    }
+  `}
+
+  ${({ theme }) => theme.sm`
+    span {
+      font-size: 0.6rem;
+    }
+  `}
+`
+
+export const AddressContainer = styled.div`
+  justify-self: flex-end;
+
+  ${({ theme }) => theme.sm`
+    text-align: center;
+  `}
 `
 
 export const Address = styled.div`
   text-transform: uppercase;
+  font-size: 1rem;
+
+  ${({ theme }) => theme.md`
+    font-size: 0.8rem
+  `}
+  ${({ theme }) => theme.sm`
+    span {
+      font-size: 0.4rem;
+    }
+  `}
 `
 export const PhoneNumber = styled.a`
   text-decoration: none;
   color: ${({ theme }) => theme.main.white};
+  font-size: 0.9rem;
+
+  ${({ theme }) => theme.md`
+    font-size: 0.7rem;
+  `}
+  ${({ theme }) => theme.sm`
+    span {
+      font-size: 0.3rem;
+    }
+  `}
 `
 export const Copywrite = styled.div``

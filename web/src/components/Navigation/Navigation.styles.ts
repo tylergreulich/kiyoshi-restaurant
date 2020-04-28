@@ -22,6 +22,12 @@ export const NavWrapper = styled.nav`
   width: 90%;
   margin: 0 auto;
   align-content: center;
+
+  > div {
+    ${({ theme }) => theme.lg`
+      width: 100%;
+    `}
+  }
 `
 
 export const Logo = styled(Link)`
@@ -30,31 +36,8 @@ export const Logo = styled(Link)`
   img {
     height: 50%;
   }
-`
 
-export const Links = styled.ul`
-  list-style: none;
-  display: flex;
-  align-items: center;
-  height: 100%;
-
-  li {
-    a {
-      padding: 0.5rem;
-      margin: 0 0.5rem;
-      font-size: 1.1rem;
-      color: ${({ theme }) => theme.main.black};
-      font-weight: 700;
-      text-decoration: none;
-      display: block;
-      transition: color 0.3s ease-in-out;
-      &:hover {
-        color: ${({ theme }) => theme.main.secondary};
-      }
-    }
-
-    .active {
-      color: ${({ theme }) => theme.main.secondary};
-    }
-  }
+  /* ${({ theme }) => theme.lg`
+    display: none;
+  `} */
 `

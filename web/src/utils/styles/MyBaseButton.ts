@@ -11,6 +11,7 @@ export const MyBaseButton = styled.button`
   transition: all 0.2s ease-in-out;
   margin-top: 0.75rem;
   font-family: 'Montserrat';
+  cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.main.white};
