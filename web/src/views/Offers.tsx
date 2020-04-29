@@ -8,7 +8,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import React from 'react'
-import { useIsSubmitting } from '../utils/hooks/useIsSubmitting.hook'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -31,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 export const Offers = () => {
   const classes = useStyles()
 
-  const { isSubmitting, setIsSubmitting } = useIsSubmitting()
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()

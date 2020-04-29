@@ -2,6 +2,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 import React from 'react'
 import { Route, Router } from 'react-router-dom'
 import styled from 'styled-components'
+import GuestRoute from './components/Auth/GuestRoute/GuestRoute'
 import PrivateRoute from './components/Auth/PrivateRoute/PrivateRoute'
 import { Footer } from './components/Footer/Footer'
 import { Navigation } from './components/Navigation/Navigation'
@@ -38,7 +39,7 @@ export const Routes = () => {
           <ScrollIntoView>
             <Route path="/menu" exact component={Menu} />
           </ScrollIntoView>
-          <Route path="/login" exact component={Login} />
+          <GuestRoute path="/login" exact component={Login} />
           <PrivateRoute path="/admin" exact component={Admin} />
         </ContentSection>
         <Footer />

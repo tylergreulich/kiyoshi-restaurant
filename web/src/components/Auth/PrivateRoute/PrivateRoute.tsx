@@ -1,8 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect, Route } from 'react-router-dom'
+import { RootState } from '../../../store/reducers/rootReducer'
 
-const PrivateRoute = ({ component: Component, auth, ...rest }) => {
+const PrivateRoute: React.FC<any> = ({
+  component: Component,
+  auth,
+  ...rest
+}) => {
   return (
     <Route
       {...rest}
@@ -22,7 +27,7 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => {
   )
 }
 
-const mapStateToProps = ({ auth }) => ({
+const mapStateToProps = ({ auth }: RootState) => ({
   auth
 })
 

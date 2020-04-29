@@ -4,11 +4,11 @@ import { Logo, NavContainer, NavWrapper } from './Navigation.styles'
 import { NavigationLinks } from './NavigationLinks/NavigationLinks'
 
 export const Navigation = () => {
-  const [scrollPosition, setSrollPosition] = React.useState(0)
+  const [scrollPosition, setScrollPosition] = React.useState(0)
 
   const handleScroll = () => {
     const position = window.pageYOffset
-    setSrollPosition(position)
+    setScrollPosition(position)
   }
 
   React.useEffect(() => {
