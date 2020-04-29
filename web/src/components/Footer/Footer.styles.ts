@@ -5,7 +5,7 @@ export const FooterWrapper = styled.footer`
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  height: 15vh;
+  height: 10vh;
   align-items: center;
   background: ${({ theme }) => theme.main.primary};
   width: 100%;
@@ -88,4 +88,3 @@ export const PhoneNumber = styled.a`
     }
   `}
 `
-export const Copywrite = styled.div``

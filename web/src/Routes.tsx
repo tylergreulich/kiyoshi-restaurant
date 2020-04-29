@@ -1,7 +1,8 @@
+import createBrowserHistory from 'history/createBrowserHistory'
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route, Router } from 'react-router-dom'
 import styled from 'styled-components'
-import { PrivateRoute } from './components/Auth/PrivateRoute/PrivateRoute'
+import PrivateRoute from './components/Auth/PrivateRoute/PrivateRoute'
 import { Footer } from './components/Footer/Footer'
 import { Navigation } from './components/Navigation/Navigation'
 import ScrollIntoView from './utils/ScrollIntoView'
@@ -11,6 +12,8 @@ import { Home } from './views/Home/Home'
 import { Login } from './views/Login'
 import { Menu } from './views/Menu'
 import { Offers } from './views/Offers'
+
+export const history = createBrowserHistory()
 
 const AppLayout = styled.div`
   display: grid;
@@ -25,7 +28,7 @@ const ContentSection = styled.section`
 
 export const Routes = () => {
   return (
-    <Router>
+    <Router history={history}>
       <AppLayout>
         <Navigation />
         <Route path="/" exact component={Home} />

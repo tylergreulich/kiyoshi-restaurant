@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import React from 'react'
+import { useIsSubmitting } from '../utils/hooks/useIsSubmitting.hook'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -17,13 +18,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     height: '100vh'
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
-  },
   form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3)
+    width: '100%' // Fix IE 11 issue.
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -35,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 export const Offers = () => {
   const classes = useStyles()
 
-  const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const { isSubmitting, setIsSubmitting } = useIsSubmitting()
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()

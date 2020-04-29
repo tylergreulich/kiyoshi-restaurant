@@ -1,15 +1,13 @@
 import React from 'react'
-import { useStore } from 'react-redux'
+import { connect } from 'react-redux'
 import { Redirect, Route } from 'react-router-dom'
 
-export const PrivateRoute = ({ component: Component, ...rest }) => {
-  const state = useStore().getState()
-
+const PrivateRoute = ({ component: Component, auth, ...rest }) => {
   return (
     <Route
       {...rest}
       render={({ location, ...props }) =>
-        state.auth.loggedIn ? (
+        auth.loggedIn ? (
           <Component {...props} />
         ) : (
           <Redirect
@@ -23,3 +21,9 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
     />
   )
 }
+
+const mapStateToProps = ({ auth }) => ({
+  auth
+})
+
+export default connect(mapStateToProps)(PrivateRoute)

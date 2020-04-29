@@ -5,9 +5,8 @@ import { MobileNavProps } from './MobileNav'
 export const HamburgerIcon = styled(FontAwesomeIcon)`
   display: none;
   z-index: 103;
-  position: absolute;
+  position: relative;
   color: ${({ theme }) => theme.main.black};
-  top: 28%;
   font-size: 1.7rem;
   cursor: pointer;
 
@@ -20,10 +19,14 @@ export const CloseMenuIcon = styled(HamburgerIcon)`
   color: ${({ theme }) => theme.main.white};
 `
 
-export const NavButtonContainer = styled.div`
+export const NavButtonContainer = styled.div<MobileNavProps>`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  ${({ theme }) => theme.lg`
+    height: 100%;
+  `}
 `
 
 export const NavLinksContainer = styled.div<MobileNavProps>`

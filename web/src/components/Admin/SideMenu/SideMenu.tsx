@@ -85,7 +85,7 @@ export const SideMenu = (props: any) => {
         <Dropdown menuLabel="Items" />
       </List>
       <Divider />
-      <Button onClick={() => dispatch(logout(history))}>Logout</Button>
+      <Button onClick={() => dispatch(logout())}>Logout</Button>
     </div>
   )
 

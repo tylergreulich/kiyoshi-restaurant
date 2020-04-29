@@ -115,7 +115,7 @@ export const Arrow = styled.section`
   position: relative;
   span {
     position: absolute;
-    transform: translateY(230%);
+    transform: translateY(300%);
     top: 80%;
     left: 50%;
     width: 30px;
@@ -124,11 +124,19 @@ export const Arrow = styled.section`
     border-radius: 50px;
     box-sizing: border-box;
 
-    ${({ theme }) => theme.md`
+    ${({ theme }) => theme.xl`
+      transform: translateY(200%);
+    `}
+
+    ${({ theme }) => theme.lg`
       transform: translateY(175%);
     `}
-    ${({ theme }) => theme.sm`
+
+    ${({ theme }) => theme.md`
       transform: translateY(150%);
+    `}
+    ${({ theme }) => theme.sm`
+      transform: translateY(75%);
     `}
   }
   span::before {
@@ -154,5 +162,15 @@ export const Arrow = styled.section`
     border-bottom: 5px solid ${({ theme }) => theme.main.white};
     transform: rotate(-45deg);
     box-sizing: border-box;
+
+    ${({ theme }) => theme.lg`
+      width: 25px;
+      height: 25px;
+    `}
+
+    ${({ theme }) => theme.md`
+      width: 20px;
+      height: 20px;
+    `}
   }
 `

@@ -12,14 +12,24 @@ export const MenuWrapper = styled.div`
   }
 
   .row {
-    padding: 0 25rem;
+    padding: 0 20%;
   }
+
+  ${({ theme }) => theme.lg`
+    .row {
+      padding: 0 10%;
+    }
+  `}
 `
 
 export const MenuContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 3rem;
+
+  ${({ theme }) => theme.md`
+    grid-template-columns: repeat(1, 1fr);
+  `}
 `
 
 export const MenuContentBox = styled.div`

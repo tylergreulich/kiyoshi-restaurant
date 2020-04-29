@@ -17,7 +17,7 @@ export const AboutSection = () => {
       <Element name="test" />
       <AboutSectionWrapper>
         <RestaurantImage>
-          <img src={AboutSectionImage} alt="About Image" />
+          <img src={AboutSectionImage} alt="About Page" />
         </RestaurantImage>
         <Information>
           <Fade>

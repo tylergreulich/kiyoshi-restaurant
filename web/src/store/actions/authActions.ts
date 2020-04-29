@@ -1,5 +1,6 @@
 import Axios from 'axios'
 import cookie from 'js-cookie'
+import { history } from '../../Routes'
 import { AppThunk, SET_LOGIN, SET_LOGOUT, User } from './../types'
 
 interface LoginPayload {
@@ -12,9 +13,7 @@ interface LoginResponse {
   access_token: string
 }
 
-export const login = (payload: LoginPayload, history: any): AppThunk => async (
-  dispatch
-) => {
+export const login = (payload: LoginPayload): AppThunk => async (dispatch) => {
   const response = await Axios.post<LoginResponse>(
     '/api/auth/login',
     payload
@@ -33,7 +32,7 @@ export const login = (payload: LoginPayload, history: any): AppThunk => async (
   }
 }
 
-export const logout = (history: any): AppThunk => async (dispatch) => {
+export const logout = (): AppThunk => async (dispatch) => {
   const response = await Axios.post('/api/auth/logout').catch((error) =>
     console.error(error)
   )

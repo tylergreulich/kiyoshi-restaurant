@@ -11,7 +11,6 @@ export const NavContainer = styled.div<NavContainerProps>`
   background: white;
   height: 10vh;
   width: 100vw;
-  opacity: ${({ scrollValue }) => (scrollValue >= 966 ? '0.9' : '1')};
   transition: opacity 0.2s ease-in-out;
 `
 
@@ -33,11 +32,9 @@ export const NavWrapper = styled.nav`
 export const Logo = styled(Link)`
   display: flex;
   align-items: center;
+  width: 50%;
+
   img {
     height: 50%;
   }
-
-  /* ${({ theme }) => theme.lg`
-    display: none;
-  `} */
 `

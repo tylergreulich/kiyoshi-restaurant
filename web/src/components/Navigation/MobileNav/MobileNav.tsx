@@ -21,7 +21,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
 }) => {
   return (
     <>
-      <NavButtonContainer>
+      <NavButtonContainer isMobileNav={isMobileNav}>
         {isMobileNav ? (
           <CloseMenuIcon
             icon={faTimes}
@@ -34,6 +34,11 @@ export const MobileNav: React.FC<MobileNavProps> = ({
       <Backdrop isMobileNav={isMobileNav}>
         <NavLinksContainer isMobileNav={isMobileNav}>
           <MobileLinks isMobileNav={isMobileNav}>
+            <NavigationLink
+              pathName="/"
+              text="Home"
+              setIsMobileNav={setIsMobileNav}
+            />
             <NavigationLink
               pathName="/menu"
               text="Food"

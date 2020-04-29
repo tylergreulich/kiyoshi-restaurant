@@ -52,6 +52,7 @@ export const FoodPreviewSection = () => {
                             width: '95%',
                             maxWidth: '250px'
                           }}
+                          alt={`${image_url}`}
                         />
                       </FoodImageWrapper>
                     </Fade>

@@ -11,7 +11,7 @@ export const Links = styled.ul<MobileNavProps>`
     a {
       padding: 0.5rem;
       margin: 0 0.5rem;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: ${({ theme }) => theme.main.black};
       font-weight: 700;
       text-decoration: none;

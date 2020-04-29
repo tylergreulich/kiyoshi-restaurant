@@ -19,7 +19,7 @@ export const AboutPanel: React.FC<AboutPanelProps> = ({
       <ContentParagraph>{paragraph}</ContentParagraph>
     </ContentTextContainer>
     <ContentImageContainer>
-      <img src={image_url} />
+      <img src={image_url} alt={`${image_url}`} />
     </ContentImageContainer>
   </PanelWrapper>
 )
