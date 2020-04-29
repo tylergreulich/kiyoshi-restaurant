@@ -20,8 +20,14 @@ export const login = (payload: LoginPayload): AppThunk => async (dispatch) => {
   ).catch((error: Error) => console.error(error))
 
   if (response) {
-    cookie.set('token', response.data.access_token)
-    console.log(payload)
+    const hour = 3600000
+    const days = 7
+
+    const expires = hour * 24 * days
+
+    cookie.set('token', response.data.access_token, {
+      expires
+    })
 
     dispatch({
       type: SET_LOGIN,
