@@ -1,4 +1,4 @@
-import createBrowserHistory from 'history/createBrowserHistory'
+import * as browserHistory from 'history'
 import React from 'react'
 import { Route, Router } from 'react-router-dom'
 import styled from 'styled-components'
@@ -14,7 +14,7 @@ import { Login } from './views/Login'
 import { Menu } from './views/Menu'
 import { Offers } from './views/Offers'
 
-export const history = createBrowserHistory()
+export const history = browserHistory.createBrowserHistory()
 
 const AppLayout = styled.div`
   display: grid;

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import LogoImage from '../../assets/img/resized-logo.png'
 import { Logo, NavContainer, NavWrapper } from './Navigation.styles'
 import { NavigationLinks } from './NavigationLinks/NavigationLinks'
@@ -19,7 +20,9 @@ export const Navigation = () => {
     }
   }, [scrollPosition])
 
-  return (
+  const location = useLocation()
+
+  return location.pathname === '/admin' ? null : (
     <NavContainer scrollValue={scrollPosition}>
       <NavWrapper>
         <Logo to="/">

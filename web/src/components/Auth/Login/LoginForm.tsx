@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography'
 import { Form, Formik } from 'formik'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import { login } from '../../../store/actions/authActions'
 import { MyTextField } from '../../../utils/MyTexField'
 import { loginValidationSchema } from './LoginForm.validation'
@@ -31,8 +30,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 export const LoginForm = () => {
   const dispatch = useDispatch()
-
-  const history = useHistory()
 
   const classes = useStyles()
 
