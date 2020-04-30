@@ -4,12 +4,11 @@ import List from '@material-ui/core/List'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
-import IconExpandLess from '@material-ui/icons/ExpandLess'
-import IconExpandMore from '@material-ui/icons/ExpandMore'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { logout } from '../../../store/actions/authActions'
+import history from '../../../utils/history'
 import { SideMenuItemComponent } from './SideMenuItemComponent'
 
 // React runtime PropTypes
@@ -26,13 +25,13 @@ type SideMenuItemPropTypes = PropTypes.InferProps<typeof SideMenuItemPropTypes>
 type SideMenuItemPropsWithoutItems = Omit<SideMenuItemPropTypes, 'items'>
 
 // Improve child items declaration
-export type SideMenuItemProps = SideMenuItemPropsWithoutItems & {
+export type SideMenuItemProps = SideMenuItemPropsWithoutItems & {}
   items?: SideMenuItemProps[]
-  isLogout?: boolean
+  pathname?: string
 }
 
 export const SideMenuItem: React.FC<SideMenuItemProps> = (props) => {
-  const { name, link, Icon, items = [], isLogout } = props
+  const { name, link, Icon, items = [], pathname } = props
   const classes = useStyles()
   const isExpandable = items && items.length > 0
   const [open, setOpen] = React.useState(false)
@@ -40,11 +39,19 @@ export const SideMenuItem: React.FC<SideMenuItemProps> = (props) => {
   const dispatch = useDispatch()
 
   function handleClick() {
-    if (isLogout) {
-      dispatch(logout())
+    switch (pathname) {
+      case 'logout':
+        dispatch(logout())
+        break
+      case 'food-categories':
+        history.push('/admin/food-categories')
+        break
+      case 'food-items':
+        history.push('/admin/food-items')
+        break
+      default:
+        break
     }
-
-    setOpen(!open)
   }
 
   const MenuItemRoot = (
@@ -60,9 +67,6 @@ export const SideMenuItem: React.FC<SideMenuItemProps> = (props) => {
         </ListItemIcon>
       )}
       <ListItemText primary={name} inset={!Icon} />
-      {/* Display the expand menu if the item has children */}
-      {isExpandable && !open && <IconExpandMore />}
-      {isExpandable && open && <IconExpandLess />}
     </SideMenuItemComponent>
   )
 

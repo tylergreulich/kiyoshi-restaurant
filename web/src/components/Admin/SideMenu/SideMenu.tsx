@@ -1,10 +1,17 @@
-import Container from '@material-ui/core/Container'
+import { Typography } from '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Drawer from '@material-ui/core/Drawer'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import React from 'react'
+import styled from 'styled-components'
 import { SideMenuNavLinks } from './SideMenuNavLinks'
+
+const KiyoshiText = styled(Typography)`
+  text-align: center;
+  margin-bottom: 1.5rem !important;
+  text-transform: uppercase;
+`
 
 export const SideMenu: React.FC = () => {
   const classes = useStyles()
@@ -18,11 +25,9 @@ export const SideMenu: React.FC = () => {
           paper: classes.drawerPaper
         }}
       >
+        <KiyoshiText variant="h4">Kiyoshi's</KiyoshiText>
         <SideMenuNavLinks />
       </Drawer>
-      <main className={classes.content}>
-        <Container maxWidth="lg" className={classes.container}></Container>
-      </main>
     </div>
   )
 }
@@ -31,7 +36,8 @@ const drawerWidth = 240
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    height: '100vh'
   },
   drawerPaper: {
     position: 'relative',

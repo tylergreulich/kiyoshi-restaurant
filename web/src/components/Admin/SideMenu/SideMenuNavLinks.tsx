@@ -6,43 +6,23 @@ import IconLibraryBooks from '@material-ui/icons/LibraryBooks'
 import React from 'react'
 import { SideMenuItem } from './SideMenuItem'
 
-const sideMenuItems = [
-  {
-    name: 'Food Categories',
-    Icon: LayersIcon,
-    items: [
-      {
-        name: 'All Food Categories'
-      },
-      {
-        name: 'Edit Food Categories'
-      }
-    ]
-  },
-  {
-    name: 'Food Items',
-    Icon: IconLibraryBooks,
-    items: [
-      {
-        name: 'All Food Items'
-      },
-      {
-        name: 'Edit Food Items'
-      }
-    ]
-  }
-]
-
 export const SideMenuNavLinks: React.FC = () => {
   const classes = useStyles()
 
   return (
     <List component="nav" className={classes.appMenu} disablePadding>
       {/* <AppMenuItem {...appMenuItems[0]} /> */}
-      {sideMenuItems.map((item, index) => (
-        <SideMenuItem {...item} key={index} />
-      ))}
-      <SideMenuItem name="Logout" Icon={ExitToAppIcon} isLogout />
+      <SideMenuItem
+        name="Food Categories"
+        Icon={LayersIcon}
+        pathname="food-categories"
+      />
+      <SideMenuItem
+        name="Food Items"
+        Icon={IconLibraryBooks}
+        pathname="food-items"
+      />
+      <SideMenuItem name="Logout" Icon={ExitToAppIcon} pathname="logout" />
     </List>
   )
 }
