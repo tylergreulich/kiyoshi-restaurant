@@ -25,7 +25,7 @@ type SideMenuItemPropTypes = PropTypes.InferProps<typeof SideMenuItemPropTypes>
 type SideMenuItemPropsWithoutItems = Omit<SideMenuItemPropTypes, 'items'>
 
 // Improve child items declaration
-export type SideMenuItemProps = SideMenuItemPropsWithoutItems & {}
+export type SideMenuItemProps = SideMenuItemPropsWithoutItems & {
   items?: SideMenuItemProps[]
   pathname?: string
 }
