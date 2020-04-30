@@ -1,7 +1,8 @@
 import Axios from 'axios'
 import cookie from 'js-cookie'
 import { history } from '../../Routes'
-import { AppThunk, SET_LOGIN, SET_LOGOUT, User } from './../types'
+import { AppThunk } from '../../utils/interfaces/AppThunk.interface'
+import { SET_IS_LOGGED_IN, SET_LOGIN, SET_LOGOUT, User } from './auth.types'
 
 interface LoginPayload {
   email: string
@@ -34,6 +35,8 @@ export const login = (payload: LoginPayload): AppThunk => async (dispatch) => {
       payload: response.data.user
     })
 
+    dispatch({ type: SET_IS_LOGGED_IN, payload: true })
+
     history.push('/admin')
   }
 }
@@ -47,6 +50,8 @@ export const logout = (): AppThunk => async (dispatch) => {
     cookie.remove('token')
 
     dispatch({ type: SET_LOGOUT })
+
+    dispatch({ type: SET_IS_LOGGED_IN, payload: false })
 
     history.push('/')
   }

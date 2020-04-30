@@ -8,8 +8,8 @@ import { ThemeProvider } from 'styled-components'
 import './index.css'
 import breakpoints from './mediaQueryBreakpoints'
 import { Routes } from './Routes'
+import { SET_LOGIN, User } from './store/auth/auth.types'
 import { store } from './store/store'
-import { SET_LOGIN, User } from './store/types'
 import { theme } from './theme'
 
 let token = cookie.get('token')

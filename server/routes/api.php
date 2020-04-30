@@ -37,8 +37,13 @@ Route::get('/menu', function() {
 });
 
 Route::get('/menu-preview', function() {
-	return FoodCategory::All();
+	echo("Hello there");
 });
+
+Route::get(
+  '/food-categories/all',
+  'admin\FoodCategoriesController@index'
+);
 
 Route::post('/login/{loginPayload}', function(Request $request) {
 	$request->validate([

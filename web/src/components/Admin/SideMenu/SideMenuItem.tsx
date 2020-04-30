@@ -7,7 +7,7 @@ import { createStyles, makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { logout } from '../../../store/actions/authActions'
+import { logout } from '../../../store/auth/auth.actions'
 import history from '../../../utils/history'
 import { SideMenuItemComponent } from './SideMenuItemComponent'
 

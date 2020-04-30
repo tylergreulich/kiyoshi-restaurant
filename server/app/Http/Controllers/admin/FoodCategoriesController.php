@@ -10,12 +10,11 @@ class FoodCategoriesController extends Controller
 {
   public function index()
   {
-    $categories = FoodCategory::paginate(10);
+    $food_categories = FoodCategory::All();
 
-    return view('admin/food-categories/all', [
-      'categories' => $categories,
-    ]);
+    return response()->json($food_categories);
   }
+
   public function create()
   {
     return view('admin/food-categories/create');

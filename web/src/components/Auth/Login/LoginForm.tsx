@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import { Form, Formik } from 'formik'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { login } from '../../../store/actions/authActions'
+import { login } from '../../../store/auth/auth.actions'
 import { MyTextField } from '../../../utils/MyTexField'
 import { loginValidationSchema } from './LoginForm.validation'
 

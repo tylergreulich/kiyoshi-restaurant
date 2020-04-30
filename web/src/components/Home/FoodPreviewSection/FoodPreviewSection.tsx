@@ -2,7 +2,7 @@ import Axios from 'axios'
 import React from 'react'
 import Fade from 'react-reveal'
 import { Link } from 'react-router-dom'
-import { FoodCategory } from '../../../common/interfaces/FoodCategory.interface'
+import { FoodCategory } from '../../../utils/interfaces/FoodCategory.interface'
 import {
   Content,
   FoodButton,
@@ -23,7 +23,7 @@ export const FoodPreviewSection = () => {
   >(null)
 
   React.useEffect(() => {
-    Axios.get<FoodCategory[]>('/api/menu-preview')
+    Axios.get<FoodCategory[]>('/api/food-categories/all')
       .then(({ data }) => setFoodCategories(data))
       .catch((error) => console.error(error))
   }, [])

@@ -1,4 +1,10 @@
-import { AuthTypes, SET_LOGIN, SET_LOGOUT, User } from '../types'
+import {
+  AuthTypes,
+  SET_IS_LOGGED_IN,
+  SET_LOGIN,
+  SET_LOGOUT,
+  User
+} from './auth.types'
 
 type InitialAuthState = {
   user: User | null
@@ -13,23 +19,28 @@ const initialState: InitialAuthState = {
 export const authReducer = (
   state: InitialAuthState = initialState,
   action: AuthTypes
-) => {
+): InitialAuthState => {
   switch (action.type) {
     case SET_LOGIN:
       return {
         ...state,
-        user: action.payload,
-        loggedIn: true
+        user: action.payload
       }
 
     case SET_LOGOUT:
       return {
         ...state,
-        user: null,
-        loggedIn: false
+        user: null
+      }
+
+    case SET_IS_LOGGED_IN:
+      console.log(action.payload)
+      return {
+        ...state,
+        loggedIn: action.payload
       }
 
     default:
-      return { ...state }
+      return state
   }
 }
