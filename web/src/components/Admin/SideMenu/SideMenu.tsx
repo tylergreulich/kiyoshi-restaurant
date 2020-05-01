@@ -4,6 +4,7 @@ import Drawer from '@material-ui/core/Drawer'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import { SideMenuNavLinks } from './SideMenuNavLinks'
 
@@ -11,10 +12,13 @@ const KiyoshiText = styled(Typography)`
   text-align: center;
   margin-bottom: 1.5rem !important;
   text-transform: uppercase;
+  cursor: pointer;
 `
 
 export const SideMenu: React.FC = () => {
   const classes = useStyles()
+
+  const history = useHistory()
 
   return (
     <div className={clsx('App', classes.root)}>
@@ -25,7 +29,9 @@ export const SideMenu: React.FC = () => {
           paper: classes.drawerPaper
         }}
       >
-        <KiyoshiText variant="h4">Kiyoshi's</KiyoshiText>
+        <KiyoshiText variant="h4" onClick={() => history.push('/')}>
+          Kiyoshi's
+        </KiyoshiText>
         <SideMenuNavLinks />
       </Drawer>
     </div>

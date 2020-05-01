@@ -3,7 +3,8 @@ import {
   CREATE_FOOD_CATEGORY,
   DELETE_FOOD_CATEGORY,
   FoodCategoryTypes,
-  GET_FOOD_CATEGORIES
+  GET_FOOD_CATEGORIES,
+  UPDATE_FOOD_CATEGORY
 } from './foodCategories.types'
 
 type InitialFoodCategoryState = {
@@ -26,10 +27,32 @@ export const foodCategoriesReducer = (
       }
 
     case CREATE_FOOD_CATEGORY:
-      console.log(action.payload)
       return {
         ...state,
         foodCategoryItems: [action.payload, ...state.foodCategoryItems!]
+      }
+
+    case UPDATE_FOOD_CATEGORY:
+      const { id: idToUpdate, title, description, image_url } = action.payload
+
+      const newFoodCategories = state.foodCategoryItems?.map(
+        (foodCategoryItem) => {
+          if (foodCategoryItem.id === idToUpdate) {
+            return {
+              ...foodCategoryItem,
+              title,
+              description,
+              image_url
+            }
+          }
+
+          return foodCategoryItem
+        }
+      )
+
+      return {
+        ...state,
+        foodCategoryItems: newFoodCategories as FoodCategory[]
       }
 
     case DELETE_FOOD_CATEGORY:

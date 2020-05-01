@@ -9,6 +9,7 @@ import { Navigation } from './components/Navigation/Navigation'
 import ScrollIntoView from './utils/ScrollIntoView'
 import { About } from './views/About/About'
 import { FoodCategories } from './views/FoodCategories'
+import { FoodItems } from './views/FoodItems'
 import { Home } from './views/Home/Home'
 import { Login } from './views/Login'
 import { Menu } from './views/Menu'
@@ -45,6 +46,7 @@ export const Routes = () => {
             exact
             component={FoodCategories}
           />
+          <PrivateRoute path="/admin/food-items" exact component={FoodItems} />
         </ContentSection>
         <Footer />
       </AppLayout>

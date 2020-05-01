@@ -2,85 +2,61 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\FoodItem;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\FoodItem;
-use App\FoodCategory;
 
 class FoodItemsController extends Controller
 {
-  public function __construct()
-  {
-    $this->middleware('auth');
-  }
-
   public function index()
   {
-    $items = FoodItem::paginate(10);
+    $food_categories = FoodItem::All();
 
-    return view('admin/food-items/all', [
-      'items' => $items,
-    ]);
+    return response()->json($food_categories);
   }
-  public function create()
-  {
-    $categories = FoodCategory::All();
-    return view('admin/food-items/create', [
-      'categories' => $categories,
-    ]);
-  }
-  public function store()
-  {
-    // return request()->all();
-    request()->validate([
-      'title' => ['required', 'string', 'max:255'],
-      'description' => ['required', 'string'],
-      'price' => ['required', 'string'],
-      'category_id' => ['required', 'integer'],
-    ]);
-    $item = new FoodItem();
-    $item->title = request('title');
-    $item->description = request('description');
-    $item->image_url = request('image_url');
-    $item->price = request('price');
-    $item->category_id = request('category_id');
-    $item->save();
 
-    return redirect('/admin/food-items');
-  }
-  public function edit($id)
+  public function create(Request $request)
   {
-    $item = FoodItem::find($id);
-    $categories = FoodCategory::All();
+    $input = $request->json()->all();
 
-    return view('admin/food-items/edit', [
-      'item' => $item,
-      'categories' => $categories,
-    ]);
+    $food_item = new FoodItem();
+
+    $food_item->title = $input["title"];
+    $food_item->description = $input["description"];
+    $food_item->image_url = $input["image_url"];
+    $food_item->price = $input["price"];
+    $food_item->save();
+
+    return $food_item;
   }
-  public function update($id)
+
+  public function update(Request $request)
   {
-    request()->validate([
-      'title' => ['required', 'string', 'max:255'],
-      'description' => ['required', 'string'],
-      'price' => ['required'],
-      'category_id' => ['required', 'integer'],
-    ]);
+    $input = $request->json()->all();
 
-    $item = FoodItem::find($id);
-    $item->title = request('title');
-    $item->description = request('description');
-    $item->image_url = request('image_url');
-    $item->price = request('price');
-    $item->category_id = request('category_id');
-    $item->save();
+    $food_item_id = $input["id"];
 
-    return redirect('/admin/food-items');
+    $food_item = FoodItem::find($food_item_id);
+
+    $food_item->title = $input['title'];
+    $food_item->description = $input['description'];
+    $food_item->image_url = $input['image_url'];
+    $food_item->price = $input['price'];
+
+    $food_item->save();
+
+    return $food_item;
   }
-  public function delete($id)
+  public function delete(string $id)
   {
-    $item = FoodItem::find($id);
-    $item->delete();
-    return redirect('/admin/food-items');
+    $food_item = FoodItem::find($id);
+
+    if (!$food_item) {
+      abort(404, "Category not found");
+    }
+
+    $food_item->delete();
+
+    return $food_item;
   }
 }

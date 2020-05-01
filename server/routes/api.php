@@ -51,10 +51,37 @@ Route::post(
   'admin\FoodCategoriesController@create'
 );
 
+Route::put(
+  '/food-categories/update/',
+  'admin\FoodCategoriesController@update'
+);
+
 Route::delete(
   '/food-categories/{id}/delete',
   'admin\FoodCategoriesController@delete'
 );
+
+// Food Items
+Route::get(
+  '/food-items/all',
+  'admin\FoodItemsController@index'
+);
+
+Route::post(
+  '/food-items/create/',
+  'admin\FoodItemsController@create'
+);
+
+Route::put(
+  '/food-items/update/',
+  'admin\FoodItemsController@update'
+);
+
+Route::delete(
+  '/food-items/{id}/delete',
+  'admin\FoodItemsController@delete'
+);
+
 
 Route::post('/login/{loginPayload}', function(Request $request) {
 	$request->validate([

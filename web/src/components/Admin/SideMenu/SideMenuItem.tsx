@@ -7,8 +7,8 @@ import { createStyles, makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { logout } from '../../../store/auth/auth.actions'
-import history from '../../../utils/history'
 import { SideMenuItemComponent } from './SideMenuItemComponent'
 
 // React runtime PropTypes
@@ -37,6 +37,8 @@ export const SideMenuItem: React.FC<SideMenuItemProps> = (props) => {
   const [open, setOpen] = React.useState(false)
 
   const dispatch = useDispatch()
+
+  const history = useHistory()
 
   function handleClick() {
     switch (pathname) {

@@ -1,8 +1,14 @@
+import MaterialTable from 'material-table'
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { getFoodCategories } from '../../../store/foodCategories/foodCategories.actions'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  createFoodCategory,
+  deleteFoodCategory,
+  getFoodCategories,
+  updateFoodCategory
+} from '../../../store/foodCategories/foodCategories.actions'
 import { RootState } from '../../../store/rootReducer'
-import { MyMaterialTable } from '../utils/MyMaterialTable/MyMaterialTable'
+import { tableIcons } from '../../../utils/tableIcons'
 
 export const FoodCategoriesTable = () => {
   const { foodCategoryItems } = useSelector(
@@ -13,9 +19,45 @@ export const FoodCategoriesTable = () => {
     getFoodCategories()
   }, [foodCategoryItems])
 
-  React.useEffect(() => {}, foodCategoryItems!)
+  const dispatch = useDispatch()
+
+  const { columns } = {
+    columns: [
+      { title: 'ID', field: 'id' },
+      { title: 'Title', field: 'title' },
+      { title: 'Description', field: 'description' },
+      { title: 'Image Url', field: 'image_url' },
+      { title: 'Date Created', field: 'created_at' }
+    ]
+  }
 
   return foodCategoryItems ? (
-    <MyMaterialTable title="All Food Categories" data={foodCategoryItems} />
+    <MaterialTable
+      style={{
+        width: '100%',
+        padding: '100px'
+      }}
+      title="All Food Categories"
+      columns={columns}
+      data={foodCategoryItems}
+      icons={tableIcons}
+      editable={{
+        onRowAdd: async ({ title, description, image_url }) => {
+          const payload = {
+            title,
+            description,
+            image_url
+          }
+
+          dispatch(createFoodCategory(payload))
+        },
+        onRowUpdate: async (newData) => {
+          dispatch(updateFoodCategory(newData))
+        },
+        onRowDelete: async (oldData) => {
+          dispatch(deleteFoodCategory(oldData.id))
+        }
+      }}
+    />
   ) : null
 }

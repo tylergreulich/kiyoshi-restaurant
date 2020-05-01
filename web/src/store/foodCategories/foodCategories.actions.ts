@@ -4,7 +4,8 @@ import { FoodCategory } from '../../utils/interfaces/FoodCategory.interface'
 import {
   CREATE_FOOD_CATEGORY,
   DELETE_FOOD_CATEGORY,
-  GET_FOOD_CATEGORIES
+  GET_FOOD_CATEGORIES,
+  UPDATE_FOOD_CATEGORY
 } from './foodCategories.types'
 
 export const getFoodCategories = (): AppThunk => async (dispatch) => {
@@ -38,6 +39,22 @@ export const createFoodCategory = (
     console.log('data', response)
     dispatch({
       type: CREATE_FOOD_CATEGORY,
+      payload: response.data
+    })
+  }
+}
+
+export const updateFoodCategory = (
+  payload: CreateFoodCategoryPayload
+): AppThunk => async (dispatch) => {
+  const response = await Axios.put<FoodCategory>(
+    `/api/food-categories/update/`,
+    payload
+  ).catch((error) => console.error(error.response))
+
+  if (response) {
+    dispatch({
+      type: UPDATE_FOOD_CATEGORY,
       payload: response.data
     })
   }

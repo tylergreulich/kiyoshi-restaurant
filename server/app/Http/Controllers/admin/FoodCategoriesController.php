@@ -19,43 +19,31 @@ class FoodCategoriesController extends Controller
   {
     $input = $request->json()->all();
 
-    $title = $input["title"];
-    $description = $input["description"];
-    $image_url = $input["image_url"];
-
     $category = new FoodCategory();
 
-    $category->title = $title;
-    $category->description = $description;
-    $category->image_url = $image_url;
+    $category->title = $input["title"];
+    $category->description = $input["description"];
+    $category->image_url = $input["image_url"];
     $category->save();
 
     return $category;
   }
 
-  public function edit(string $id)
+  public function update(Request $request)
   {
-    $category = FoodCategory::find($id);
+    $input = $request->json()->all();
 
-    return view('admin/food-categories/edit', [
-      'category' => $category,
-    ]);
-  }
-  public function update($id)
-  {
-    request()->validate([
-      'title' => ['required', 'string', 'max:255'],
-      'description' => ['required', 'string'],
-      'image_url' => ['required', 'string'],
-    ]);
+    $category_id = $input["id"];
 
-    $category = FoodCategory::find($id);
-    $category->title = request('title');
-    $category->description = request('description');
-    $category->image_url = request('image_url');
+    $category = FoodCategory::find($category_id);
+
+    $category->title = $input['title'];
+    $category->description = $input['description'];
+    $category->image_url = $input['image_url'];
+
     $category->save();
 
-    return redirect('/admin/food-categories/all');
+    return $category;
   }
   public function delete(string $id)
   {

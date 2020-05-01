@@ -22,7 +22,11 @@ export const Navigation = () => {
 
   const location = useLocation()
 
-  return location.pathname === '/admin' ? null : (
+  const isAdminRoute =
+    location.pathname === '/admin/food-categories' ||
+    location.pathname === '/admin/food-items'
+
+  return isAdminRoute ? null : (
     <NavContainer scrollValue={scrollPosition}>
       <NavWrapper>
         <Logo to="/">
