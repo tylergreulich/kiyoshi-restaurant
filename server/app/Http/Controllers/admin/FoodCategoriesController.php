@@ -17,9 +17,11 @@ class FoodCategoriesController extends Controller
 
   public function create(Request $request)
   {
-    $title = $request->input('title');
-    $description = $request->input('description');
-    $image_url = $request->input('image_url');
+    $input = $request->json()->all();
+
+    $title = $input["title"];
+    $description = $input["description"];
+    $image_url = $input["image_url"];
 
     $category = new FoodCategory();
 
@@ -28,7 +30,7 @@ class FoodCategoriesController extends Controller
     $category->image_url = $image_url;
     $category->save();
 
-    return response();
+    return $category;
   }
 
   public function edit(string $id)

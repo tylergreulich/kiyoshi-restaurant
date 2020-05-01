@@ -32,9 +32,10 @@ export const createFoodCategory = (
   const response = await Axios.post<FoodCategory>(
     `/api/food-categories/create/`,
     payload
-  ).catch((error) => console.error(error))
+  ).catch((error) => console.error(error.response))
 
   if (response) {
+    console.log('data', response)
     dispatch({
       type: CREATE_FOOD_CATEGORY,
       payload: response.data
