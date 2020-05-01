@@ -41,10 +41,6 @@ Route::get(
   'admin\FoodCategoriesController@index'
 );
 Route::get(
-  '/admin/food-categories/create',
-  'admin\FoodCategoriesController@create'
-);
-Route::get(
   '/admin/food-categories/{id}/edit',
   'admin\FoodCategoriesController@edit'
 );
@@ -69,24 +65,6 @@ Route::delete(
   'admin\FoodItemsController@delete'
 );
 
-// Admin Members
-Route::get('/admin/members', 'admin\MemberController@index');
-Route::get('admin/members/{id}/delete', 'admin\MemberController@delete');
-
-// Admin Reservations
-Route::get('admin/reservations', 'admin\ReservationsController@index');
-Route::delete(
-  'admin/reservations/{id}/delete',
-  'admin\ReservationsController@delete'
-);
-
-// Admin users
-Route::get('admin/users', 'admin\UsersController@all');
-Route::get('admin/users/create', 'admin\UsersController@create');
-Route::get('admin/users/{id}/edit', 'admin\UsersController@edit');
-Route::put('admin/users/{id}', 'admin\UsersController@update');
-Route::delete('admin/users/{id}/delete', 'admin\UsersController@delete');
-
 // Admin Authentication
 Route::get('/register', function () {
   return view('/auth/register');
@@ -98,4 +76,3 @@ Route::get('/login', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

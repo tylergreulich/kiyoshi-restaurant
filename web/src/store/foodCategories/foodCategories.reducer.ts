@@ -1,5 +1,10 @@
 import { FoodCategory } from '../../utils/interfaces/FoodCategory.interface'
-import { FoodCategoryTypes, GET_FOOD_CATEGORIES } from './foodCategories.types'
+import {
+  CREATE_FOOD_CATEGORY,
+  DELETE_FOOD_CATEGORY,
+  FoodCategoryTypes,
+  GET_FOOD_CATEGORIES
+} from './foodCategories.types'
 
 type InitialFoodCategoryState = {
   foodCategoryItems: FoodCategory[] | null
@@ -18,6 +23,21 @@ export const foodCategoriesReducer = (
       return {
         ...state,
         foodCategoryItems: action.payload
+      }
+
+    case CREATE_FOOD_CATEGORY:
+      console.log(action.payload)
+      return {
+        ...state,
+        foodCategoryItems: [action.payload, ...state.foodCategoryItems!]
+      }
+
+    case DELETE_FOOD_CATEGORY:
+      return {
+        ...state,
+        foodCategoryItems: state.foodCategoryItems!.filter(
+          (foodCategoryItem) => foodCategoryItem.id !== action.payload
+        )
       }
 
     default:

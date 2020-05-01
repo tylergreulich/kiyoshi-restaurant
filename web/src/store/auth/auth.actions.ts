@@ -37,7 +37,7 @@ export const login = (payload: LoginPayload): AppThunk => async (dispatch) => {
 
     dispatch({ type: SET_IS_LOGGED_IN, payload: true })
 
-    history.push('/admin')
+    history.push('/admin/food-categories')
   }
 }
 

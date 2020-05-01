@@ -1,10 +1,17 @@
 import MaterialTable from 'material-table'
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import {
+  createFoodCategory,
+  deleteFoodCategory
+} from '../../../../store/foodCategories/foodCategories.actions'
 import { tableIcons } from '../../../../utils/tableIcons'
 
 interface Row {
   id: number
+  description: string
   title: string
+  image_url: string
   created_at: string
 }
 
@@ -21,10 +28,14 @@ export const MyMaterialTable: React.FC<MyMaterialTableProps> = ({
     columns: [
       { title: 'ID', field: 'id' },
       { title: 'Title', field: 'title' },
+      { title: 'Description', field: 'description' },
+      { title: 'Image Url', field: 'image_url' },
       { title: 'Date Created', field: 'created_at' }
     ],
     data
   }
+
+  const dispatch = useDispatch()
 
   return (
     <MaterialTable
@@ -37,10 +48,20 @@ export const MyMaterialTable: React.FC<MyMaterialTableProps> = ({
       data={state.data}
       icons={tableIcons}
       editable={{
-        onRowAdd: async (newData) => await console.log(newData),
+        onRowAdd: async ({ title, description, image_url }) => {
+          const payload = {
+            title,
+            description,
+            image_url
+          }
+
+          dispatch(createFoodCategory(payload))
+
+          console.log('done')
+        },
         onRowUpdate: async (newData, oldData) =>
           await console.log(newData, oldData),
-        onRowDelete: async (oldData) => await console.log(oldData)
+        onRowDelete: async (oldData) => dispatch(deleteFoodCategory(oldData.id))
       }}
     />
   )

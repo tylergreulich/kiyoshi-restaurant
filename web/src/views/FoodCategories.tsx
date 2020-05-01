@@ -14,7 +14,7 @@ export const FoodCategories = () => {
 
   React.useEffect(() => {
     dispatch(getFoodCategories())
-  }, [foodCategoryItems])
+  }, [])
 
   return (
     <AdminContainer>

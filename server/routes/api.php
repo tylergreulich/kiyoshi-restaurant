@@ -40,9 +40,20 @@ Route::get('/menu-preview', function() {
 	echo("Hello there");
 });
 
+// Food Categories
 Route::get(
   '/food-categories/all',
   'admin\FoodCategoriesController@index'
+);
+
+Route::post(
+  '/food-categories/create/',
+  'admin\FoodCategoriesController@create'
+);
+
+Route::delete(
+  '/food-categories/{id}/delete',
+  'admin\FoodCategoriesController@delete'
 );
 
 Route::post('/login/{loginPayload}', function(Request $request) {
@@ -50,8 +61,6 @@ Route::post('/login/{loginPayload}', function(Request $request) {
 		'loginPayload.email' => 'required',
 		'loginPayload.password' => 'required'
 	]);
-
-
 });
 
 Route::group([

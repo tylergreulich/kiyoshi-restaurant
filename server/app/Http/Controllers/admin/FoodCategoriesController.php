@@ -15,26 +15,23 @@ class FoodCategoriesController extends Controller
     return response()->json($food_categories);
   }
 
-  public function create()
+  public function create(Request $request)
   {
-    return view('admin/food-categories/create');
-  }
-  public function store()
-  {
-    request()->validate([
-      'title' => ['required', 'string', 'max:255'],
-      'description' => ['required', 'string'],
-      'image_url' => ['required', 'string'],
-    ]);
+    $title = $request->input('title');
+    $description = $request->input('description');
+    $image_url = $request->input('image_url');
+
     $category = new FoodCategory();
-    $category->title = request('title');
-    $category->description = request('description');
-    $category->image_url = request('image_url');
+
+    $category->title = $title;
+    $category->description = $description;
+    $category->image_url = $image_url;
     $category->save();
 
-    return redirect('/admin/food-categories');
+    return response();
   }
-  public function edit($id)
+
+  public function edit(string $id)
   {
     $category = FoodCategory::find($id);
 
@@ -58,10 +55,16 @@ class FoodCategoriesController extends Controller
 
     return redirect('/admin/food-categories/all');
   }
-  public function delete($id)
+  public function delete(string $id)
   {
     $category = FoodCategory::find($id);
+
+    if (!$category) {
+      abort(404, "Category not found");
+    }
+
     $category->delete();
-    return redirect('/admin/food-categories');
+
+    return $category;
   }
 }
