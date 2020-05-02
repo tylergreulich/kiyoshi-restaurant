@@ -15,13 +15,19 @@ const KiyoshiText = styled(Typography)`
   cursor: pointer;
 `
 
+const StyledContainer = styled.div`
+  ${({ theme }) => theme.xl`
+    display: none !important;
+  `}
+`
+
 export const SideMenu: React.FC = () => {
   const classes = useStyles()
 
   const history = useHistory()
 
   return (
-    <div className={clsx('App', classes.root)}>
+    <StyledContainer className={clsx('App', classes.root)}>
       <CssBaseline />
       <Drawer
         variant="permanent"
@@ -34,7 +40,7 @@ export const SideMenu: React.FC = () => {
         </KiyoshiText>
         <SideMenuNavLinks />
       </Drawer>
-    </div>
+    </StyledContainer>
   )
 }
 

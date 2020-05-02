@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
 import { MobileNavProps } from './MobileNav'
 
-export const HamburgerIcon = styled(FontAwesomeIcon)`
+export const HamburgerIcon = styled(FontAwesomeIcon)<MobileNavProps>`
   display: none;
   z-index: 103;
   position: relative;
@@ -11,7 +11,12 @@ export const HamburgerIcon = styled(FontAwesomeIcon)`
   cursor: pointer;
 
   ${({ theme }) => theme.lg`
-    display: block;
+    display: block !important;
+  `}
+
+  ${({ theme, isAdminRoute }) =>
+    theme.xl`
+    display: ${isAdminRoute ? 'block' : 'none'};
   `}
 `
 
@@ -25,12 +30,17 @@ export const NavButtonContainer = styled.div<MobileNavProps>`
   align-items: center;
 
   ${({ theme }) => theme.lg`
-    height: 100%;
+    height: 100% !important;
+  `}
+
+  ${({ theme, isAdminRoute }) => theme.xl`
+    height: ${isAdminRoute ? '100%' : 0};
   `}
 `
 
 export const NavLinksContainer = styled.div<MobileNavProps>`
   height: ${({ isMobileNav }) => (isMobileNav ? '100vh' : '100%')};
+  display: ${({ isAdminRoute }) => (isAdminRoute ? 'none' : 'block')};
 `
 
 export const Backdrop = styled.div<MobileNavProps>`

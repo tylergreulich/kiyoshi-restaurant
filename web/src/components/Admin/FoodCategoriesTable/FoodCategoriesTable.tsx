@@ -1,3 +1,4 @@
+import { Grid } from '@material-ui/core'
 import MaterialTable from 'material-table'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -36,32 +37,36 @@ export const FoodCategoriesTable = () => {
   }
 
   return foodCategoryItems ? (
-    <MaterialTable
-      style={{
-        width: '100%',
-        padding: '100px'
-      }}
-      title="All Food Categories"
-      columns={columns}
-      data={foodCategoryItems}
-      icons={tableIcons}
-      editable={{
-        onRowAdd: async ({ title, description, image_url }) => {
-          const payload = {
-            title,
-            description,
-            image_url
-          }
+    <Grid item>
+      <MaterialTable
+        style={{
+          width: '100%',
+          padding: '100px'
+        }}
+        title="All Food Categories"
+        columns={columns}
+        data={foodCategoryItems}
+        icons={tableIcons}
+        editable={{
+          onRowAdd: async ({ title, description, image_url }) => {
+            const payload = {
+              title,
+              description,
+              image_url
+            }
 
-          dispatch(createFoodCategory(payload))
-        },
-        onRowUpdate: async (newData) => {
-          dispatch(updateFoodCategory(newData))
-        },
-        onRowDelete: async (oldData) => {
-          dispatch(deleteFoodCategory(oldData.id))
-        }
-      }}
-    />
-  ) : null
+            dispatch(createFoodCategory(payload))
+          },
+          onRowUpdate: async (newData) => {
+            dispatch(updateFoodCategory(newData))
+          },
+          onRowDelete: async (oldData) => {
+            dispatch(deleteFoodCategory(oldData.id))
+          }
+        }}
+      />
+    </Grid>
+  ) : (
+    <div style={{ height: '100vh' }} />
+  )
 }
