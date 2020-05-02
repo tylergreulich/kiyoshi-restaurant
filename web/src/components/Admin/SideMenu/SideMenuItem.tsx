@@ -34,7 +34,6 @@ export const SideMenuItem: React.FC<SideMenuItemProps> = (props) => {
   const { name, link, Icon, items = [], pathname } = props
   const classes = useStyles()
   const isExpandable = items && items.length > 0
-  const [open, setOpen] = React.useState(false)
 
   const dispatch = useDispatch()
 
@@ -73,7 +72,7 @@ export const SideMenuItem: React.FC<SideMenuItemProps> = (props) => {
   )
 
   const MenuItemChildren = isExpandable ? (
-    <Collapse in={open} timeout="auto" unmountOnExit>
+    <Collapse in={false} timeout="auto" unmountOnExit>
       <Divider />
       <List component="div" disablePadding>
         {items.map((item, index) => (

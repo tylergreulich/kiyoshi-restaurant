@@ -9,7 +9,7 @@ export const FoodItems = () => {
 
   React.useEffect(() => {
     dispatch(getFoodItems())
-  }, [])
+  })
 
   return (
     <AdminContainer>
