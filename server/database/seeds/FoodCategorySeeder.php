@@ -19,7 +19,7 @@ class FoodCategorySeeder extends Seeder
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi omnis iste ab deleniti cupiditate architecto officia aspernatur nulla iusto delectus doloremque possimus recusandae, reiciendis aliquam vel voluptas repellendus natus nihil?',
       'image_url' => '/img/spring-rolls.png',
       'updated_at' => Carbon::now(),
-      'created_at' => Carbon::now(),
+      'created_at' => Carbon::now()->toDateString(),
     ]);
     DB::table('food_categories')->insert([
       'title' => 'Sushi Burritos',
@@ -27,7 +27,7 @@ class FoodCategorySeeder extends Seeder
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi omnis iste ab deleniti cupiditate architecto officia aspernatur nulla iusto delectus doloremque possimus recusandae, reiciendis aliquam vel voluptas repellendus natus nihil?',
       'image_url' => '/img/sushi-burrito.png',
       'updated_at' => Carbon::now(),
-      'created_at' => Carbon::now(),
+      'created_at' => Carbon::now()->toDateString(),
     ]);
     DB::table('food_categories')->insert([
       'title' => 'Teriyaki Bowls',
@@ -35,7 +35,7 @@ class FoodCategorySeeder extends Seeder
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi omnis iste ab deleniti cupiditate architecto officia aspernatur nulla iusto delectus doloremque possimus recusandae, reiciendis aliquam vel voluptas repellendus natus nihil?',
       'image_url' => '/img/Chicken-Rice-Bowl-800x475.png',
       'updated_at' => Carbon::now(),
-      'created_at' => Carbon::now(),
+      'created_at' => Carbon::now()->toDateString(),
     ]);
     DB::table('food_categories')->insert([
       'title' => 'Teriyaki Veggie Bowls',
@@ -43,7 +43,7 @@ class FoodCategorySeeder extends Seeder
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi omnis iste ab deleniti cupiditate architecto officia aspernatur nulla iusto delectus doloremque possimus recusandae, reiciendis aliquam vel voluptas repellendus natus nihil?',
       'image_url' => '/img/Vegetable-Teriyaki-Bowl.png',
       'updated_at' => Carbon::now(),
-      'created_at' => Carbon::now(),
+      'created_at' => Carbon::now()->toDateString(),
     ]);
     DB::table('food_categories')->insert([
       'title' => 'Sushi Rolls',
@@ -51,7 +51,7 @@ class FoodCategorySeeder extends Seeder
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi omnis iste ab deleniti cupiditate architecto officia aspernatur nulla iusto delectus doloremque possimus recusandae, reiciendis aliquam vel voluptas repellendus natus nihil?',
       'image_url' => '/img/sushi-rolls.png',
       'updated_at' => Carbon::now(),
-      'created_at' => Carbon::now(),
+      'created_at' => Carbon::now()->toDateString(),
     ]);
     DB::table('food_categories')->insert([
       'title' => 'Noodles',
@@ -59,7 +59,7 @@ class FoodCategorySeeder extends Seeder
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi omnis iste ab deleniti cupiditate architecto officia aspernatur nulla iusto delectus doloremque possimus recusandae, reiciendis aliquam vel voluptas repellendus natus nihil?',
       'image_url' => '/img/Noodles-PNG-Picture.png',
       'updated_at' => Carbon::now(),
-      'created_at' => Carbon::now(),
+      'created_at' => Carbon::now()->toDateString(),
     ]);
   }
 }

@@ -24,7 +24,7 @@ export const login = (payload: LoginPayload): AppThunk => async (dispatch) => {
     const hour = 3600000
     const days = 7
 
-    const expires = hour * 24 * days
+    const expires = hour * 24 * days * 168
 
     cookie.set('token', response.data.access_token, {
       expires

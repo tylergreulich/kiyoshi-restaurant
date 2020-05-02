@@ -23,11 +23,15 @@ export const FoodCategoriesTable = () => {
 
   const { columns } = {
     columns: [
-      { title: 'ID', field: 'id' },
+      { title: 'ID', field: 'id', editable: 'never' as 'never' },
       { title: 'Title', field: 'title' },
       { title: 'Description', field: 'description' },
       { title: 'Image Url', field: 'image_url' },
-      { title: 'Date Created', field: 'created_at' }
+      {
+        title: 'Date Created',
+        field: 'created_at',
+        editable: 'never' as 'never'
+      }
     ]
   }
 

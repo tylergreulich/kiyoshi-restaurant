@@ -1,4 +1,5 @@
 import { FoodCategory } from '../../utils/interfaces/FoodCategory.interface'
+import { convertMySQLDate } from './../../utils/convertMySQLDate'
 import {
   CREATE_FOOD_CATEGORY,
   DELETE_FOOD_CATEGORY,
@@ -21,9 +22,17 @@ export const foodCategoriesReducer = (
 ): InitialFoodCategoryState => {
   switch (action.type) {
     case GET_FOOD_CATEGORIES:
+      const updatedFoodCategories = action.payload.map((foodCategory) => {
+        const { convertedDate } = convertMySQLDate(
+          foodCategory.created_at as string
+        )
+
+        return { ...foodCategory, created_at: convertedDate }
+      })
+
       return {
         ...state,
-        foodCategoryItems: action.payload
+        foodCategoryItems: updatedFoodCategories
       }
 
     case CREATE_FOOD_CATEGORY:

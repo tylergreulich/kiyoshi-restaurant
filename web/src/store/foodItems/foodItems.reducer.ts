@@ -1,4 +1,5 @@
 import { FoodItem } from '../../utils/interfaces/FoodItem.interface'
+import { convertMySQLDate } from './../../utils/convertMySQLDate'
 import {
   CREATE_FOOD_ITEM,
   DELETE_FOOD_ITEM,
@@ -21,19 +22,23 @@ export const foodItemsReducer = (
 ): InitialFoodItemState => {
   switch (action.type) {
     case GET_FOOD_ITEMS:
-      const updatedFoodItemPrices = action.payload.map((foodItem) => {
+      const updatedFoodItems = action.payload.map((foodItem) => {
         const decimalPointToRoundTo = 2
 
         const updatedPrice = parseFloat(
           foodItem.price.toFixed(decimalPointToRoundTo)
         )
 
-        return { ...foodItem, price: updatedPrice }
+        const { convertedDate } = convertMySQLDate(
+          foodItem.created_at as string
+        )
+
+        return { ...foodItem, price: updatedPrice, created_at: convertedDate }
       })
 
       return {
         ...state,
-        foodItems: updatedFoodItemPrices
+        foodItems: updatedFoodItems
       }
 
     case CREATE_FOOD_ITEM:
@@ -53,7 +58,6 @@ export const foodItemsReducer = (
 
       const newFoodItems = state.foodItems?.map((foodItem) => {
         if (foodItem.id === idToUpdate) {
-          console.log('updating')
           return {
             ...foodItem,
             title,
