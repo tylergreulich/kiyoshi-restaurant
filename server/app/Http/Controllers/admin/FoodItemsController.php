@@ -23,7 +23,6 @@ class FoodItemsController extends Controller
 
     $food_item->title = $input["title"];
     $food_item->description = $input["description"];
-    $food_item->image_url = $input["image_url"];
     $food_item->price = $input["price"];
     $food_item->save();
 
@@ -40,7 +39,6 @@ class FoodItemsController extends Controller
 
     $food_item->title = $input['title'];
     $food_item->description = $input['description'];
-    $food_item->image_url = $input['image_url'];
     $food_item->price = $input['price'];
 
     $food_item->save();
