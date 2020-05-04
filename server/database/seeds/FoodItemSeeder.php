@@ -170,6 +170,7 @@ class FoodItemSeeder extends Seeder
       'title' => 'Tofu Cutlet',
       'description' =>
         'Fried Tofu with Vegetables',
+      'price' => 5.99,
       'category_id' => 4,
       'updated_at' => Carbon::now(),
       'created_at' => Carbon::now(),
@@ -178,6 +179,7 @@ class FoodItemSeeder extends Seeder
       'title' => 'California Roll',
       'description' =>
         'Avocado and Crabmeat inside',
+      'price' => 4.99,
       'category_id' => 5,
       'updated_at' => Carbon::now(),
       'created_at' => Carbon::now(),
