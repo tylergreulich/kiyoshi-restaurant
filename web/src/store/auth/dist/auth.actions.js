@@ -37,71 +37,46 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var axios_1 = require("axios");
-var foodCategories_types_1 = require("./foodCategories.types");
-exports.getFoodCategories = function () { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
-    var response;
+var js_cookie_1 = require("js-cookie");
+var Routes_1 = require("../../Routes");
+var auth_types_1 = require("./auth.types");
+exports.login = function (payload) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
+    var response, hour, days, expires;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].get('http://kiyoshi-restaurant.xyz/api/food-categories/all')["catch"](function (error) { return console.error(error); })];
+            case 0: return [4 /*yield*/, axios_1["default"].post('http://kiyoshi-restaurant.xyz/api/auth/login', payload)["catch"](function (error) { return console.error(error); })];
             case 1:
                 response = _a.sent();
                 if (response) {
-                    dispatch({
-                        type: foodCategories_types_1.GET_FOOD_CATEGORIES,
-                        payload: response.data
+                    hour = 3600000;
+                    days = 7;
+                    expires = hour * 24 * days * 168;
+                    js_cookie_1["default"].set('token', response.data.access_token, {
+                        expires: expires
                     });
+                    dispatch({
+                        type: auth_types_1.SET_LOGIN,
+                        payload: response.data.user
+                    });
+                    dispatch({ type: auth_types_1.SET_IS_LOGGED_IN, payload: true });
+                    Routes_1.history.push('/admin/food-categories');
                 }
                 return [2 /*return*/];
         }
     });
 }); }; };
-exports.createFoodCategory = function (payload) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
+exports.logout = function () { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].post("http://kiyoshi-restaurant.xyz/api/food-categories/create/", payload)["catch"](function (error) { return console.error(error.response); })];
+            case 0: return [4 /*yield*/, axios_1["default"].post('http://kiyoshi-restaurant.xyz/api/auth/logout')["catch"](function (error) { return console.error(error); })];
             case 1:
                 response = _a.sent();
                 if (response) {
-                    console.log('data', response);
-                    dispatch({
-                        type: foodCategories_types_1.CREATE_FOOD_CATEGORY,
-                        payload: response.data
-                    });
-                }
-                return [2 /*return*/];
-        }
-    });
-}); }; };
-exports.updateFoodCategory = function (payload) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
-    var response;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].put("http://kiyoshi-restaurant.xyz/api/food-categories/update/", payload)["catch"](function (error) { return console.error(error.response); })];
-            case 1:
-                response = _a.sent();
-                if (response) {
-                    dispatch({
-                        type: foodCategories_types_1.UPDATE_FOOD_CATEGORY,
-                        payload: response.data
-                    });
-                }
-                return [2 /*return*/];
-        }
-    });
-}); }; };
-exports.deleteFoodCategory = function (foodCategoryId) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
-    var response;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"]["delete"]("http://kiyoushi-restaurant.xyz//api/food-categories/" + foodCategoryId + "/delete")["catch"](function (error) { return console.error(error); })];
-            case 1:
-                response = _a.sent();
-                if (response) {
-                    dispatch({
-                        type: foodCategories_types_1.DELETE_FOOD_CATEGORY,
-                        payload: foodCategoryId
-                    });
+                    js_cookie_1["default"].remove('token');
+                    dispatch({ type: auth_types_1.SET_LOGOUT });
+                    dispatch({ type: auth_types_1.SET_IS_LOGGED_IN, payload: false });
+                    Routes_1.history.push('/');
                 }
                 return [2 /*return*/];
         }

@@ -37,17 +37,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var axios_1 = require("axios");
-var foodCategories_types_1 = require("./foodCategories.types");
-exports.getFoodCategories = function () { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
+var foodItems_types_1 = require("./foodItems.types");
+exports.getFoodItems = function () { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].get('http://kiyoshi-restaurant.xyz/api/food-categories/all')["catch"](function (error) { return console.error(error); })];
+            case 0: return [4 /*yield*/, axios_1["default"].get('http://kiyoshi-restaurant.xyz/api/food-items/all/')["catch"](function (error) { return console.error(error); })];
             case 1:
                 response = _a.sent();
                 if (response) {
                     dispatch({
-                        type: foodCategories_types_1.GET_FOOD_CATEGORIES,
+                        type: foodItems_types_1.GET_FOOD_ITEMS,
                         payload: response.data
                     });
                 }
@@ -55,17 +55,17 @@ exports.getFoodCategories = function () { return function (dispatch) { return __
         }
     });
 }); }; };
-exports.createFoodCategory = function (payload) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
+exports.createFoodItem = function (payload) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].post("http://kiyoshi-restaurant.xyz/api/food-categories/create/", payload)["catch"](function (error) { return console.error(error.response); })];
+            case 0: return [4 /*yield*/, axios_1["default"].post("http://kiyoshi-restaurant.xyz/api/food-items/create/", payload)["catch"](function (error) { return console.error(error.response); })];
             case 1:
                 response = _a.sent();
                 if (response) {
                     console.log('data', response);
                     dispatch({
-                        type: foodCategories_types_1.CREATE_FOOD_CATEGORY,
+                        type: foodItems_types_1.CREATE_FOOD_ITEM,
                         payload: response.data
                     });
                 }
@@ -73,16 +73,16 @@ exports.createFoodCategory = function (payload) { return function (dispatch) { r
         }
     });
 }); }; };
-exports.updateFoodCategory = function (payload) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
+exports.updateFoodItem = function (payload) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].put("http://kiyoshi-restaurant.xyz/api/food-categories/update/", payload)["catch"](function (error) { return console.error(error.response); })];
+            case 0: return [4 /*yield*/, axios_1["default"].put("http://kiyoshi-restaurant.xyz/api/food-items/update/", payload)["catch"](function (error) { return console.error(error.response); })];
             case 1:
                 response = _a.sent();
                 if (response) {
                     dispatch({
-                        type: foodCategories_types_1.UPDATE_FOOD_CATEGORY,
+                        type: foodItems_types_1.UPDATE_FOOD_ITEM,
                         payload: response.data
                     });
                 }
@@ -90,17 +90,17 @@ exports.updateFoodCategory = function (payload) { return function (dispatch) { r
         }
     });
 }); }; };
-exports.deleteFoodCategory = function (foodCategoryId) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
+exports.deleteFoodItem = function (foodItemId) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"]["delete"]("http://kiyoushi-restaurant.xyz//api/food-categories/" + foodCategoryId + "/delete")["catch"](function (error) { return console.error(error); })];
+            case 0: return [4 /*yield*/, axios_1["default"]["delete"]("http://kiyoshi-restaurant.xyz/api/food-items/" + foodItemId + "/delete/")["catch"](function (error) { return console.error(error); })];
             case 1:
                 response = _a.sent();
                 if (response) {
                     dispatch({
-                        type: foodCategories_types_1.DELETE_FOOD_CATEGORY,
-                        payload: foodCategoryId
+                        type: foodItems_types_1.DELETE_FOOD_ITEM,
+                        payload: foodItemId
                     });
                 }
                 return [2 /*return*/];
