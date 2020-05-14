@@ -113,6 +113,7 @@ export const JumboOverlay = styled.div`
 
 export const Arrow = styled.section`
   position: relative;
+  cursor: pointer;
   span {
     position: absolute;
     transform: translateY(300%);
