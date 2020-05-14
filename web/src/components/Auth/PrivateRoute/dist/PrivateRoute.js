@@ -27,7 +27,6 @@ var react_redux_1 = require("react-redux");
 var react_router_dom_1 = require("react-router-dom");
 var PrivateRoute = function (_a) {
     var Component = _a.component, auth = _a.auth, rest = __rest(_a, ["component", "auth"]);
-    console.log(auth);
     return (react_1["default"].createElement(react_router_dom_1.Route, __assign({}, rest, { render: function (_a) {
             var location = _a.location, props = __rest(_a, ["location"]);
             return auth.user ? (react_1["default"].createElement(Component, __assign({}, props))) : (react_1["default"].createElement(react_router_dom_1.Redirect, { to: {

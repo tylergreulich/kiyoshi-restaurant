@@ -59,7 +59,7 @@ exports.createFoodCategory = function (payload) { return function (dispatch) { r
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].post("/api/food-categories/create/", payload)["catch"](function (error) { return console.error(error.response); })];
+            case 0: return [4 /*yield*/, axios_1["default"].post("https://kiyoshi-restaurant.xyz/api/food-categories/create/", payload)["catch"](function (error) { return console.error(error.response); })];
             case 1:
                 response = _a.sent();
                 if (response) {
@@ -77,7 +77,7 @@ exports.updateFoodCategory = function (payload) { return function (dispatch) { r
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].put("/api/food-categories/update/", payload)["catch"](function (error) { return console.error(error.response); })];
+            case 0: return [4 /*yield*/, axios_1["default"].put("https://kiyoshi-restaurant.xyz/api/food-categories/update/", payload)["catch"](function (error) { return console.error(error.response); })];
             case 1:
                 response = _a.sent();
                 if (response) {
@@ -94,7 +94,7 @@ exports.deleteFoodCategory = function (foodCategoryId) { return function (dispat
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"]["delete"]("/api/food-categories/" + foodCategoryId + "/delete")["catch"](function (error) { return console.error(error); })];
+            case 0: return [4 /*yield*/, axios_1["default"]["delete"]("https://kiyoshi-restaurant.xyz/api/food-categories/" + foodCategoryId + "/delete")["catch"](function (error) { return console.error(error); })];
             case 1:
                 response = _a.sent();
                 if (response) {

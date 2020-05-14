@@ -9,7 +9,7 @@ export const MenuItems = () => {
 
   React.useEffect(() => {
     axios
-      .get<IMenuItem[]>('/api/menu')
+      .get<IMenuItem[]>('https://kiyoshi-restaurant.xyz/api/menu')
       .then(({ data }) => setMenuItems(data))
       .catch((error) => console.error(error))
   }, [])

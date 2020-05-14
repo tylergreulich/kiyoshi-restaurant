@@ -31,7 +31,7 @@ export const createFoodCategory = (
   payload: CreateFoodCategoryPayload
 ): AppThunk => async (dispatch) => {
   const response = await Axios.post<FoodCategory>(
-    `/api/food-categories/create/`,
+    `https://kiyoshi-restaurant.xyz/api/food-categories/create/`,
     payload
   ).catch((error) => console.error(error.response))
 
@@ -48,7 +48,7 @@ export const updateFoodCategory = (
   payload: CreateFoodCategoryPayload
 ): AppThunk => async (dispatch) => {
   const response = await Axios.put<FoodCategory>(
-    `/api/food-categories/update/`,
+    `https://kiyoshi-restaurant.xyz/api/food-categories/update/`,
     payload
   ).catch((error) => console.error(error.response))
 
@@ -64,7 +64,7 @@ export const deleteFoodCategory = (foodCategoryId: number): AppThunk => async (
   dispatch
 ) => {
   const response = await Axios.delete<FoodCategory[]>(
-    `/api/food-categories/${foodCategoryId}/delete`
+    `https://kiyoshi-restaurant.xyz/api/food-categories/${foodCategoryId}/delete`
   ).catch((error) => console.error(error))
 
   if (response) {
