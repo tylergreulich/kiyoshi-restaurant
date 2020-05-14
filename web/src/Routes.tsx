@@ -14,6 +14,7 @@ import { Home } from './views/Home/Home'
 import { Login } from './views/Login'
 import { Menu } from './views/Menu'
 import { Offers } from './views/Offers'
+import { Test } from './views/test'
 
 export const history = browserHistory.createBrowserHistory()
 
@@ -33,6 +34,7 @@ export const Routes = () => {
     <Router history={history}>
       <AppLayout>
         <Navigation />
+        <Route path="/test" component={Test} />
         <Route path="/" exact component={Home} />
         <ContentSection>
           <Route path="/about" exact component={About} />
