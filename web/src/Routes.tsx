@@ -36,7 +36,7 @@ export const Routes = () => {
         <Navigation />
         <Route path="/" exact component={Home} />
         <ContentSection>
-          <Route path="/test" component={Test} />
+          <Route path="/test" exact component={Test} />
           <Route path="/about" exact component={About} />
           <Route path="/offers" exact component={Offers} />
           <ScrollIntoView>
