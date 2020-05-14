@@ -2,3 +2,5 @@
 base = "web"
 publish = "/build"
 command = "npm run build"
+
+/* http://167.71.127.251/  200
