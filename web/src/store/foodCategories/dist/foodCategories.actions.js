@@ -42,9 +42,7 @@ exports.getFoodCategories = function () { return function (dispatch) { return __
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                console.log('called');
-                return [4 /*yield*/, axios_1["default"].get('/api/food-categories/all')["catch"](function (error) { return console.error('ERR', error); })];
+            case 0: return [4 /*yield*/, axios_1["default"].get('https://kiyoshi-restaurant.xyz/api/food-categories/all')["catch"](function (error) { return console.error('ERR', error); })];
             case 1:
                 response = _a.sent();
                 if (response) {

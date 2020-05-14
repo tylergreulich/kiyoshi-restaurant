@@ -9,9 +9,8 @@ import {
 } from './foodCategories.types'
 
 export const getFoodCategories = (): AppThunk => async (dispatch) => {
-  console.log('called')
   const response = await Axios.get<FoodCategory[]>(
-    '/api/food-categories/all'
+    'https://kiyoshi-restaurant.xyz/api/food-categories/all'
   ).catch((error) => console.error('ERR', error))
 
   if (response) {
