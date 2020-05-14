@@ -42,7 +42,9 @@ exports.getFoodItems = function () { return function (dispatch) { return __await
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].get('http://kiyoshi-restaurant.xyz/api/food-items/all/')["catch"](function (error) { return console.error(error); })];
+            case 0:
+                console.log('ran');
+                return [4 /*yield*/, axios_1["default"].get('http://kiyoshi-restaurant.xyz/api/food-items/all/')["catch"](function (error) { return console.error(error); })];
             case 1:
                 response = _a.sent();
                 if (response) {

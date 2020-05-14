@@ -21,7 +21,9 @@ if (token) {
       cookie.remove('token')
       token = undefined
     } else {
-      if ((decoded as any).iss !== 'http://localhost:8000/api/auth/login') {
+      if (
+        (decoded as any).iss !== 'http://kiyoshi-restaurant.xyz/api/auth/login'
+      ) {
         cookie.remove('token')
         token = undefined
       }
@@ -45,7 +47,7 @@ const renderApp = () => {
 if (token) {
   Axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
-  Axios.post<User>('http://localhost:8000/api/auth/me')
+  Axios.post<User>('http://kiyoshi-restaurant.xyz/api/auth/me')
     .then(({ data }) => {
       store.dispatch({ type: SET_LOGIN, payload: data as any })
 
