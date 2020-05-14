@@ -34,9 +34,9 @@ export const Routes = () => {
     <Router history={history}>
       <AppLayout>
         <Navigation />
-        <Route path="/test" component={Test} />
         <Route path="/" exact component={Home} />
         <ContentSection>
+          <Route path="/test" component={Test} />
           <Route path="/about" exact component={About} />
           <Route path="/offers" exact component={Offers} />
           <ScrollIntoView>
