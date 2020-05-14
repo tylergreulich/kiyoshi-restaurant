@@ -16,7 +16,7 @@ interface LoginResponse {
 
 export const login = (payload: LoginPayload): AppThunk => async (dispatch) => {
   const response = await Axios.post<LoginResponse>(
-    'https://kiyoshi-restaurant.xyz/api/auth/login',
+    '/api/auth/login',
     payload
   ).catch((error: Error) => console.error(error))
 
@@ -27,7 +27,9 @@ export const login = (payload: LoginPayload): AppThunk => async (dispatch) => {
     const expires = hour * 24 * days * 168
 
     cookie.set('token', response.data.access_token, {
-      expires
+      expires,
+      sameSite: 'strict',
+      secure: true
     })
 
     dispatch({
@@ -42,9 +44,9 @@ export const login = (payload: LoginPayload): AppThunk => async (dispatch) => {
 }
 
 export const logout = (): AppThunk => async (dispatch) => {
-  const response = await Axios.post(
-    'https://kiyoshi-restaurant.xyz/api/auth/logout'
-  ).catch((error) => console.error(error))
+  const response = await Axios.post('/api/auth/logout').catch((error) =>
+    console.error(error)
+  )
 
   if (response) {
     cookie.remove('token')

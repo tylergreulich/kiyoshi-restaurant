@@ -14,7 +14,6 @@ import { Home } from './views/Home/Home'
 import { Login } from './views/Login'
 import { Menu } from './views/Menu'
 import { Offers } from './views/Offers'
-import { Test } from './views/test'
 
 export const history = browserHistory.createBrowserHistory()
 
@@ -36,7 +35,6 @@ export const Routes = () => {
         <Navigation />
         <Route path="/" exact component={Home} />
         <ContentSection>
-          <Route path="/test" exact component={Test} />
           <Route path="/about" exact component={About} />
           <Route path="/offers" exact component={Offers} />
           <ScrollIntoView>

@@ -42,9 +42,7 @@ exports.getFoodItems = function () { return function (dispatch) { return __await
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                console.log('ran');
-                return [4 /*yield*/, axios_1["default"].get('https://kiyoshi-restaurant.xyz/api/food-items/all/')["catch"](function (error) { return console.error(error); })];
+            case 0: return [4 /*yield*/, axios_1["default"].get('/api/food-items/all/')["catch"](function (error) { return console.error(error); })];
             case 1:
                 response = _a.sent();
                 if (response) {
@@ -61,7 +59,7 @@ exports.createFoodItem = function (payload) { return function (dispatch) { retur
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].post("https://kiyoshi-restaurant.xyz/api/food-items/create/", payload)["catch"](function (error) { return console.error(error.response); })];
+            case 0: return [4 /*yield*/, axios_1["default"].post("/api/food-items/create/", payload)["catch"](function (error) { return console.error(error.response); })];
             case 1:
                 response = _a.sent();
                 if (response) {
@@ -79,7 +77,7 @@ exports.updateFoodItem = function (payload) { return function (dispatch) { retur
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].put("https://kiyoshi-restaurant.xyz/api/food-items/update/", payload)["catch"](function (error) { return console.error(error.response); })];
+            case 0: return [4 /*yield*/, axios_1["default"].put("/api/food-items/update/", payload)["catch"](function (error) { return console.error(error.response); })];
             case 1:
                 response = _a.sent();
                 if (response) {
@@ -96,7 +94,7 @@ exports.deleteFoodItem = function (foodItemId) { return function (dispatch) { re
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"]["delete"]("https://kiyoshi-restaurant.xyz/api/food-items/" + foodItemId + "/delete/")["catch"](function (error) { return console.error(error); })];
+            case 0: return [4 /*yield*/, axios_1["default"]["delete"]("/api/food-items/" + foodItemId + "/delete/")["catch"](function (error) { return console.error(error); })];
             case 1:
                 response = _a.sent();
                 if (response) {

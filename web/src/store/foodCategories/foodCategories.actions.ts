@@ -9,9 +9,10 @@ import {
 } from './foodCategories.types'
 
 export const getFoodCategories = (): AppThunk => async (dispatch) => {
+  console.log('called')
   const response = await Axios.get<FoodCategory[]>(
-    'https://kiyoshi-restaurant.xyz/api/food-categories/all'
-  ).catch((error) => console.error(error))
+    '/api/food-categories/all'
+  ).catch((error) => console.error('ERR', error))
 
   if (response) {
     dispatch({
@@ -31,7 +32,7 @@ export const createFoodCategory = (
   payload: CreateFoodCategoryPayload
 ): AppThunk => async (dispatch) => {
   const response = await Axios.post<FoodCategory>(
-    `https://kiyoshi-restaurant.xyz/api/food-categories/create/`,
+    `/api/food-categories/create/`,
     payload
   ).catch((error) => console.error(error.response))
 
@@ -48,7 +49,7 @@ export const updateFoodCategory = (
   payload: CreateFoodCategoryPayload
 ): AppThunk => async (dispatch) => {
   const response = await Axios.put<FoodCategory>(
-    `https://kiyoshi-restaurant.xyz/api/food-categories/update/`,
+    `/api/food-categories/update/`,
     payload
   ).catch((error) => console.error(error.response))
 
@@ -64,7 +65,7 @@ export const deleteFoodCategory = (foodCategoryId: number): AppThunk => async (
   dispatch
 ) => {
   const response = await Axios.delete<FoodCategory[]>(
-    `https://kiyoushi-restaurant.xyz//api/food-categories/${foodCategoryId}/delete`
+    `/api/food-categories/${foodCategoryId}/delete`
   ).catch((error) => console.error(error))
 
   if (response) {

@@ -44,7 +44,7 @@ exports.login = function (payload) { return function (dispatch) { return __await
     var response, hour, days, expires;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].post('https://kiyoshi-restaurant.xyz/api/auth/login', payload)["catch"](function (error) { return console.error(error); })];
+            case 0: return [4 /*yield*/, axios_1["default"].post('/api/auth/login', payload)["catch"](function (error) { return console.error(error); })];
             case 1:
                 response = _a.sent();
                 if (response) {
@@ -52,7 +52,9 @@ exports.login = function (payload) { return function (dispatch) { return __await
                     days = 7;
                     expires = hour * 24 * days * 168;
                     js_cookie_1["default"].set('token', response.data.access_token, {
-                        expires: expires
+                        expires: expires,
+                        sameSite: 'strict',
+                        secure: true
                     });
                     dispatch({
                         type: auth_types_1.SET_LOGIN,
@@ -69,7 +71,9 @@ exports.logout = function () { return function (dispatch) { return __awaiter(voi
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, axios_1["default"].post('https://kiyoshi-restaurant.xyz/api/auth/logout')["catch"](function (error) { return console.error(error); })];
+            case 0: return [4 /*yield*/, axios_1["default"].post('/api/auth/logout')["catch"](function (error) {
+                    return console.error(error);
+                })];
             case 1:
                 response = _a.sent();
                 if (response) {

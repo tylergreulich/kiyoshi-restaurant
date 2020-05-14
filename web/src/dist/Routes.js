@@ -20,7 +20,6 @@ var Home_1 = require("./views/Home/Home");
 var Login_1 = require("./views/Login");
 var Menu_1 = require("./views/Menu");
 var Offers_1 = require("./views/Offers");
-var test_1 = require("./views/test");
 exports.history = browserHistory.createBrowserHistory();
 var AppLayout = styled_components_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: grid;\n  width: 100%;\n  height: 100vh;\n  font-family: 'Montserrat';\n"], ["\n  display: grid;\n  width: 100%;\n  height: 100vh;\n  font-family: 'Montserrat';\n"])));
 var ContentSection = styled_components_1["default"].section(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background: ", ";\n"], ["\n  background: ", ";\n"])), function (_a) {
@@ -33,7 +32,6 @@ exports.Routes = function () {
             react_1["default"].createElement(Navigation_1.Navigation, null),
             react_1["default"].createElement(react_router_dom_1.Route, { path: "/", exact: true, component: Home_1.Home }),
             react_1["default"].createElement(ContentSection, null,
-                react_1["default"].createElement(react_router_dom_1.Route, { path: "/test", component: test_1.Test }),
                 react_1["default"].createElement(react_router_dom_1.Route, { path: "/about", exact: true, component: About_1.About }),
                 react_1["default"].createElement(react_router_dom_1.Route, { path: "/offers", exact: true, component: Offers_1.Offers }),
                 react_1["default"].createElement(ScrollIntoView_1["default"], null,

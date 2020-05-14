@@ -8,6 +8,8 @@ const PrivateRoute: React.FC<any> = ({
   auth,
   ...rest
 }) => {
+  console.log(auth)
+
   return (
     <Route
       {...rest}
