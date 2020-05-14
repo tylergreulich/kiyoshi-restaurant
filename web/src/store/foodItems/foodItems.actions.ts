@@ -12,7 +12,7 @@ export const getFoodItems = (): AppThunk => async (dispatch) => {
   console.log('ran')
 
   const response = await Axios.get<FoodItem[]>(
-    'http://kiyoshi-restaurant.xyz/api/food-items/all/'
+    'https://kiyoshi-restaurant.xyz/api/food-items/all/'
   ).catch((error) => console.error(error))
 
   if (response) {
@@ -34,7 +34,7 @@ export const createFoodItem = (
   payload: CreateFoodItemPayload
 ): AppThunk => async (dispatch) => {
   const response = await Axios.post<FoodItem>(
-    `http://kiyoshi-restaurant.xyz/api/food-items/create/`,
+    `https://kiyoshi-restaurant.xyz/api/food-items/create/`,
     payload
   ).catch((error) => console.error(error.response))
 
@@ -51,7 +51,7 @@ export const updateFoodItem = (
   payload: CreateFoodItemPayload
 ): AppThunk => async (dispatch) => {
   const response = await Axios.put<FoodItem>(
-    `http://kiyoshi-restaurant.xyz/api/food-items/update/`,
+    `https://kiyoshi-restaurant.xyz/api/food-items/update/`,
     payload
   ).catch((error) => console.error(error.response))
 
@@ -67,7 +67,7 @@ export const deleteFoodItem = (foodItemId: number): AppThunk => async (
   dispatch
 ) => {
   const response = await Axios.delete<FoodItem[]>(
-    `http://kiyoshi-restaurant.xyz/api/food-items/${foodItemId}/delete/`
+    `https://kiyoshi-restaurant.xyz/api/food-items/${foodItemId}/delete/`
   ).catch((error) => console.error(error))
 
   if (response) {
