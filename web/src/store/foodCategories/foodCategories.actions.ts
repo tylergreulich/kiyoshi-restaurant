@@ -10,7 +10,7 @@ import {
 
 export const getFoodCategories = (): AppThunk => async (dispatch) => {
   const response = await Axios.get<FoodCategory[]>(
-    '/api/food-categories/all'
+    'http://167.71.127.251/api/food-categories/all'
   ).catch((error) => console.error(error))
 
   if (response) {
