@@ -37,12 +37,12 @@ export const Footer = () => {
       </HoursContainer>
       <AddressContainer>
         <Address>
-          2510 e hunt highway
+          3153 Dye Street
           <br />
-          san tan valley, az 85143
+          Chandler, AZ 85225
         </Address>
         <div>
-          <PhoneNumber href="tel:+14807503628">1 (480) 750-3628</PhoneNumber>
+          <PhoneNumber href="tel:+14807260620">1 (480) 726-0620</PhoneNumber>
         </div>
       </AddressContainer>
     </FooterWrapper>

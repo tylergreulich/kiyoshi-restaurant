@@ -11,7 +11,7 @@ export const Hero = () => {
         <span id="to">To</span>
       </div>
       <div>
-        <strong id="kiyoshi">Kiyoshi's</strong>
+        <strong id="kiyoshi">Kibou's</strong>
       </div>
       <div>
         <span id="teriyaki">Teriyaki</span>

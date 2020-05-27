@@ -1,5 +1,4 @@
 import React from 'react'
-import LogoImage from '../../assets/img/resized-logo.png'
 import { Logo, NavContainer, NavWrapper } from './Navigation.styles'
 import { NavigationLinks } from './NavigationLinks/NavigationLinks'
 
@@ -22,9 +21,7 @@ export const Navigation = () => {
   return (
     <NavContainer scrollValue={scrollPosition}>
       <NavWrapper>
-        <Logo to="/">
-          <img src={LogoImage} alt="Logo" />
-        </Logo>
+        <Logo to="/">Kibou's</Logo>
         <NavigationLinks />
       </NavWrapper>
     </NavContainer>

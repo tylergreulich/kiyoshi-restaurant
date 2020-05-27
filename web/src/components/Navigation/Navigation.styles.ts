@@ -32,9 +32,10 @@ export const NavWrapper = styled.nav`
 export const Logo = styled(Link)`
   display: flex;
   align-items: center;
-  width: 50%;
-
-  img {
-    height: 50%;
-  }
+  width: 4%;
+  text-decoration: none;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: ${({ theme }) => theme.main.primary};
 `
